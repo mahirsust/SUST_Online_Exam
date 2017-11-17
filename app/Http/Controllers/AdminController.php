@@ -24,9 +24,35 @@ class AdminController extends Controller
         return view('admin.course.addcourse');
     }
 
+    public function saveCourse(Request $request)
+    {
+        //return $request;
+        $course = new Course;
+        $course->t_id = $request->t_id;
+        $course->t_coursename = $request->coursename;
+        $course->t_coursecode = $request->coursecode;
+        $course->t_batch = $request->batch;
+        $course->save();
+
+        $request->session()->flash('alert-success', 'Course is added succesfully!');
+        
+        return redirect('/course');
+
+    }
+
+    public function regList()
+    {
+        return view('admin.course.reglist');
+    }
+
+    public function noticeList()
+    {
+        return view('admin.notice.notice', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
+    }
+
     public function showNotice()
     {
-        return view('admin.notice.notice');
+        return view('admin.notice.addnotice');
     }
 
     public function postNotice(Request $request)
@@ -43,21 +69,8 @@ class AdminController extends Controller
         $request->session()->flash('alert-success', 'Notice is added succesfully!');
         $request = $request->semester;
         return redirect()->action('AdminController@index', ['id' => $request]);*/
-    }
-
-    public function saveCourse(Request $request)
-    {
-        //return $request;
-        $course = new Course;
-        $course->t_id = $request->t_id;
-        $course->t_coursename = $request->coursename;
-        $course->t_coursecode = $request->coursecode;
-        $course->t_batch = $request->batch;
-        $course->save();
-
         $request->session()->flash('alert-success', 'Course is added succesfully!');
         
         return redirect('/course');
-
     }
 }

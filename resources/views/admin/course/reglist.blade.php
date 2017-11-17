@@ -13,6 +13,8 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
 						</li>
+						<li class="breadcrumb-item"><a href="{{url('/course')}}">Courses</a>
+						</li>
 						<li class="breadcrumb-item active">Registered Students
 						</li>
 					</ol>
@@ -31,26 +33,17 @@
 				<div class="col-xs-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">Striped rows</h4>
-							<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-							<div class="heading-elements">
-								<ul class="list-inline mb-0">
-									<li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-									<li><a data-action="reload"><i class="icon-reload"></i></a></li>
-									<li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-									<li><a data-action="close"><i class="icon-cross2"></i></a></li>
-								</ul>
-							</div>
+							<h4 class="card-title">List of Registered Student</h4>
 						</div>
-						<div class="card-body collapse in">
+						<div class="card-body">
 							<!-- <div class="card-block card-dashboard">
 								<p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
 							</div> -->
 							<div class="table-responsive">
-								<table class="table table-bordered table-hover mb-0">
+								<table class="table table-bordered mb-0">
 									<thead>
 										<tr>
-											<th align="center">#</th>
+											<th>ID</th>
 											<th>Registration No</th>
 											<th>Name</th>
 										</tr>
@@ -58,19 +51,19 @@
 									<tbody>
 										
 										<tr>
-											<td align="center">1</td>
-											<td align="center">2013331009</td>
-											<td align="center">Nishat Tasnim Ahmed Meem</td>
+											<th>1</th>
+											<td>2013331009</td>
+											<td>Nishat Tasnim Ahmed Meem</td>
 										</tr>
 										<tr>
-											<td align="center">1</td>
-											<td align="center">2013331028</td>
-											<td align="center">Muhammad Mahir Hasan Chowdhury</td>
+											<th>2</th>
+											<td>2013331028</td>
+											<td>Muhammad Mahir Hasan Chowdhury</td>
 										</tr>
 										<tr>
-											<td align="center">1</td>
-											<td align="center">2013331037</td>
-											<td align="center">Fowzia Yesmin</td>
+											<th>3</th>
+											<td>2013331037</td>
+											<td>Fowzia Yesmin</td>
 										</tr>
 										
 									</tbody>

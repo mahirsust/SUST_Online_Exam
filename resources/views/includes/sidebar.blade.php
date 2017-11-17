@@ -35,7 +35,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="{{ url('/notice') }}"><i class="icon-bell3"></i>
+            <a href="{{ url('/noticelist') }}"><i class="icon-bell3"></i>
               <span data-i18n="nav.content.main" class="menu-title">Notice</span>
             </a>
           </li>
