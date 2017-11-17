@@ -27,6 +27,8 @@ Auth::routes();
 Route::get('/dashboard',['as'=>'dashboard','uses'=>'AdminController@showDashboard']);
 Route::get('/course',['as'=>'course','uses'=>'AdminController@showCourses']);
 Route::get('/CreateCourse',['as'=>'addcourse','uses'=>'AdminController@AddCourse']);
+Route::get('/notice',['as'=>'notice','uses'=>'AdminController@showNotice']);
+Route::post('/notice/save',['as'=>'savenotice','uses'=>'AdminController@postNotice']);
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

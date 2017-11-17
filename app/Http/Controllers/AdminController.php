@@ -20,4 +20,25 @@ class AdminController extends Controller
     {
         return view('admin.course.addcourse');
     }
+
+    public function showNotice()
+    {
+        return view('admin.notice.notice');
+    }
+
+    public function postNotice()
+    {
+        
+        $notice = new Notice;
+        
+        $notice->course = $request->cname; 
+        $notice->notice_date = $request->n_date;
+        $notice->notice = $request->notice_1;
+        $notice->file_path = $fileName; 
+        
+        $notice->save();
+        $request->session()->flash('alert-success', 'Notice is added succesfully!');
+        $request = $request->semester;
+        return redirect()->action('AdminController@index', ['id' => $request]);
+    }
 }
