@@ -29,10 +29,10 @@ class AdminController extends Controller
         return view('admin.notice.notice');
     }
 
-    public function postNotice()
+    public function postNotice(Request $request)
     {
-        
-        $notice = new Notice;
+        return $request;
+        /*$notice = new Notice;
         
         $notice->course = $request->cname; 
         $notice->notice_date = $request->n_date;
@@ -42,7 +42,7 @@ class AdminController extends Controller
         $notice->save();
         $request->session()->flash('alert-success', 'Notice is added succesfully!');
         $request = $request->semester;
-        return redirect()->action('AdminController@index', ['id' => $request]);
+        return redirect()->action('AdminController@index', ['id' => $request]);*/
     }
 
     public function saveCourse(Request $request)

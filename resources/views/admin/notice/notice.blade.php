@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="col-xs-10">
 					
-					<form method="POST" action="{{ url('/notice/save') }}">
+					<form method="POST" action="{{ url('/saveNotice') }}">
                         {{csrf_field()}}
                         
                         
@@ -33,9 +33,8 @@
 							 name="write_notice" placeholder="write your notice"></textarea>
 						</div>
 						<div class="mb-1">
-							<a href="{{url('/CreateCourse')}}">
-								<button type="submit" class="btn btn-danger">Post</button>
-							</a>
+							
+							<button type="submit" class="btn btn-danger">Post</button>		
 						</div>	
 					</form>		
 				
@@ -51,8 +50,7 @@
 								</div>
 	                            <div class="card-body">
 	                                <div class="card-block">
-	                                    
-	                                
+	                                             
 		                                <p >
 		                                    <!-- nl2br post post_body   --> 
 		                                Hope you are doing well. 
