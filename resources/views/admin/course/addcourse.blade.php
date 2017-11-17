@@ -26,17 +26,20 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="card">
-
+						<?php
+							$id = Auth::user()->id;
+						?>
 						<div class="card-body collapse in">
 							<div class="card-block">
 
-								<form class="form">
+								<form class="form" method="POST" action="{{ url('/saveCourse')}}" >
+									{{ csrf_field() }}
+									<input type="hidden" name="t_id" value={{$id}}>
 									<div class="form-body">
-
 										<div class="form-group">
 											<label for="timesheetinput1">Course Name</label>
 											<div class="position-relative has-icon-left">
-												<input type="text" id="timesheetinput1" class="form-control" placeholder="Web Lab" name="coursename">
+												<input type="text" id="timesheetinput1" class="form-control" placeholder="Course Name" name="coursename" required>
 												<div class="form-control-position">
 													<i class="icon-head"></i>
 												</div>
@@ -46,7 +49,7 @@
 										<div class="form-group">
 											<label for="timesheetinput2">Course Code</label>
 											<div class="position-relative has-icon-left">
-												<input type="text" id="timesheetinput2" class="form-control" placeholder="CSE 446" name="coursecode">
+												<input type="text" id="timesheetinput2" class="form-control" placeholder="Course Code" name="coursecode" required>
 												<div class="form-control-position">
 													<i class="icon-briefcase4"></i>
 												</div>
@@ -56,8 +59,14 @@
 										<div class="form-group">
 											<label for="timesheetinput3">Batch</label>
 											<div class="position-relative has-icon-left">
-												<input type="text" id="timesheetinput3" class="form-control" placeholder="2013" 
-													name="batch_id">
+												<select class="form-control" id="timesheetinput3" name="batch" required>
+													<option value="2013">2013</option>
+													<option value="2014">2014</option>
+													<option value="2015">2015</option>
+													<option value="2016">2016</option>
+												</select>
+												<!-- <input type="text" id="timesheetinput3" class="form-control" placeholder="Batch" 
+												name="batch_id"> -->
 												<div class="form-control-position">
 													<i class="icon-file2"></i>
 												</div>

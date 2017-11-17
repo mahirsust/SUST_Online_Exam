@@ -6,14 +6,14 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">Courses</h2>
+				<h2 class="content-header-title">Registerd Students in CSE 445</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
 						</li>
-						<li class="breadcrumb-item active">Courses
+						<li class="breadcrumb-item active">Registered Students
 						</li>
 					</ol>
 				</div>
@@ -29,11 +29,6 @@
 		<div class="content-body"><!-- Basic Tables start -->
 			<div class="row">
 				<div class="col-xs-12">
-					<div class="mb-1">
-						<a href="{{url('/CreateCourse')}}">
-							<button type="button" class="btn btn-success">Add Course</button>
-						</a>
-					</div>
 					<div class="card">
 						<div class="card-header">
 							<h4 class="card-title">Striped rows</h4>
@@ -55,22 +50,29 @@
 								<table class="table table-bordered table-hover mb-0">
 									<thead>
 										<tr>
-											<th>#</th>
-											<th>Course Name</th>
-											<th>Course Code</th>
-											<th>Action</th>
+											<th align="center">#</th>
+											<th>Registration No</th>
+											<th>Name</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach($courses as $c)
+										
 										<tr>
-											<th scope="row" align="center">{{$c->id}}</th>
-											<td align="center">{{$c->t_coursename}}</td>
-											<td align="center">{{$c->t_coursecode}}</td>
-											<td align="center"><a href="{{ url('/reglist') }}" class="btn btn-info">Enter</a></td>
-											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
+											<td align="center">1</td>
+											<td align="center">2013331009</td>
+											<td align="center">Nishat Tasnim Ahmed Meem</td>
 										</tr>
-										@endforeach
+										<tr>
+											<td align="center">1</td>
+											<td align="center">2013331028</td>
+											<td align="center">Muhammad Mahir Hasan Chowdhury</td>
+										</tr>
+										<tr>
+											<td align="center">1</td>
+											<td align="center">2013331037</td>
+											<td align="center">Fowzia Yesmin</td>
+										</tr>
+										
 									</tbody>
 								</table>
 							</div>
