@@ -16,8 +16,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="http://wwww.twitter.com/themefisher" class="Twitter">
-                                    <i class="ion-social-twitter"></i>
+                                <a href="https://github.com/mahirsust/SUST_Online_Exam" class="Github">
+                                    <i class="ion-social-github"></i>
                                 </a>
                             </li>
                             <li>

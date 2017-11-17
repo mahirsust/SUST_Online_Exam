@@ -17,7 +17,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#"><i class="icon-book2"></i>
+            <a href="{{ url('/course') }}"><i class="icon-book2"></i>
               <span data-i18n="nav.project.main" class="menu-title">Courses</span>
             </a>
           </li>

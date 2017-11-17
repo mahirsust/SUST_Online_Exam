@@ -26,10 +26,5 @@ class HomeController extends Controller
     {
         return view('welcome.contact');
     }
-
-    public function showDashboard()
-    {
-        return view('html.ltr.index');
-    }
     
 }

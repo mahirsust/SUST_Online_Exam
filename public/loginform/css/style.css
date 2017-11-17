@@ -17,7 +17,7 @@ body, html {
   margin: 0 auto;
   margin-left: 100px;
   /*border: 1px solid black;*/
-  background: #00ffffff;
+  background: rgba(0,0,0,0.5);
  /* min-height: 250px;*/
   /*padding-right: 100px;*/
   z-index: 9999;

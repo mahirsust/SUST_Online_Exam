@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome.mainhome');
 });
 
+/*----------------------------Home-------------------------------------------------*/
 Route::get('/home',['as'=>'home','uses'=>'HomeController@showHome']);
 Route::get('/about',['as'=>'about','uses'=>'HomeController@showAbout']);
 Route::get('/feature',['as'=>'service','uses'=>'HomeController@showFeatures']);
@@ -22,7 +23,10 @@ Route::get('/contact',['as'=>'contact','uses'=>'HomeController@showContact']);
 
 Auth::routes();
 
-Route::get('/dashboard',['as'=>'dashboard','uses'=>'HomeController@showDashboard']);
+/*----------------------------Admin-------------------------------------------------*/
+Route::get('/dashboard',['as'=>'dashboard','uses'=>'AdminController@showDashboard']);
+Route::get('/course',['as'=>'course','uses'=>'AdminController@showCourses']);
+Route::get('/CreateCourse',['as'=>'addcourse','uses'=>'AdminController@AddCourse']);
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

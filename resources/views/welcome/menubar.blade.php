@@ -48,29 +48,10 @@
                             <li><a href="{{ url('/register') }}">Register</a></li>
                             @else
                                 <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">
-                                    
+                                    <a href="{{route('dashboard')}}">
+                                        <i class="icon-head"></i> 
                                         {{ Auth::user()->name }}
                                     </a>
-                                        <div class="dropdown-menu">
-                                            <a href="{{route('dashboard')}}" class="dropdown-item">
-                                                <i class="icon-head"></i> 
-                                                    Dashboard
-                                            </a>
-
-                                            <a href="{{route('logout')}}"
-                                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"
-                                            class="dropdown-item">
-                                                <i class="icon-power3"></i>
-                                                    Logout
-                                            </a>
-
-                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-
-                                        </div>
                                 </li>
                             @endif
 
