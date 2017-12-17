@@ -29,10 +29,12 @@
 					<form method="POST" action="{{ url('/saveNotice') }}">
                         {{csrf_field()}}
                         
-                        
+                        <div class="form-group">
+							<input type="text" class="form-control border-info" placeholder="Title" name="noticetitle" required>
+                        </div>
 						<div class="form-group">
-							<textarea id="userinput8" rows="5" class="form-control border-danger"
-							 name="write_notice" placeholder="write your notice"></textarea>
+							<textarea id="userinput8" rows="5" class="form-control border-info"
+							 name="write_notice" placeholder="write your notice" required></textarea>
 						</div>
 						<div class="mb-1">
 							
@@ -45,7 +47,7 @@
 	                    <td>
 	                        <section class="card">
 	                        	<div class="card-header">
-									<h2 class="card-title" style="color: #b22222;">
+									<h2 class="card-title" style="color: green;"><!-- //color: #b22222;" -->
 										November 10, 2017: Web Engineering Lab Project - Submission #01 (One)
 									</h2>
 									<td>few seconds ago</td>

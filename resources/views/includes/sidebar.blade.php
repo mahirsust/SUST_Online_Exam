@@ -23,7 +23,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#"><i class="icon-question-circle"></i>
+            <a href="{{ url('/questionset') }}"><i class="icon-question-circle"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Question Set</span>
             </a>
           </li>
@@ -31,6 +31,12 @@
           <li class=" nav-item">
             <a href="#"><i class="icon-file-text3"></i>
               <span data-i18n="nav.advance_cards.main" class="menu-title">Exams</span>
+            </a>
+          </li>
+
+          <li class=" nav-item">
+            <a href="{{ url('/result') }}"><i class="icon-bar-chart-o"></i>
+              <span data-i18n="nav.cards.main" class="menu-title">Result</span>
             </a>
           </li>
 

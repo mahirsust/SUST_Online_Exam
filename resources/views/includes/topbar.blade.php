@@ -10,8 +10,8 @@
         </li>
         <li class="nav-item">
           <a href="{{url('/')}}" class="navbar-brand nav-link">
-            <img alt="branding logo" src="app-assets/images/logo/robust-logo-light.png"
-            data-expand="app-assets/images/logo/robust-logo-light.png"
+            <img alt="branding logo" src="app-assets/images/logo/2017-11-17.png"
+            data-expand="app-assets/images/logo/2017-11-17.png"
             data-collapse="app-assets/images/logo/robust-logo-small.png" class="brand-logo">
           </a>
         </li>
