@@ -23,7 +23,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="{{ url('/questionset') }}"><i class="icon-question-circle"></i>
+            <a href="{{ url('/question_set') }}"><i class="icon-question-circle"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Question Set</span>
             </a>
           </li>

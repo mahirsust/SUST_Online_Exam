@@ -24,21 +24,27 @@ Route::get('/contact',['as'=>'contact','uses'=>'HomeController@showContact']);
 Auth::routes();
 
 /*----------------------------Admin-------------------------------------------------*/
+
+/*----------------------Dashboard----------------------*/
 Route::get('/dashboard',['as'=>'dashboard','uses'=>'AdminController@showDashboard']);
 
+/*----------------------Course----------------------*/
 Route::get('/course',['as'=>'course','uses'=>'AdminController@showCourses']);
 Route::get('/CreateCourse',['as'=>'addcourse','uses'=>'AdminController@AddCourse']);
 Route::POST('/saveCourse',['as'=>'savecourse','uses'=>'AdminController@saveCourse']);
 Route::get('/reglist',['as'=>'regcourse','uses'=>'AdminController@regList']);
 
+/*----------------------Notice----------------------*/
 Route::get('/noticelist',['as'=>'noticelist','uses'=>'AdminController@noticeList']);
 Route::get('/notice',['as'=>'notice','uses'=>'AdminController@showNotice']);
 Route::post('/saveNotice',['as'=>'savenotice','uses'=>'AdminController@postNotice']);
 
-Route::get('/CreateQuestionSet',['as'=>'addquestionset','uses'=>'AdminController@addQuestionSet']);
-Route::get('/questionset',['as'=>'questionset','uses'=>'AdminController@showlistQuestionSet']);
+/*----------------------Question----------------------*/
+Route::get('/CreateQuestionSet',['as'=>'add_questionset','uses'=>'AdminController@addQuestionSet']);
+Route::get('/question_set',['as'=>'questionsetlist','uses'=>'AdminController@showlistQuestionSet']);
 Route::post('/savequestions',['as'=>'SaveQuestions','uses'=>'AdminController@savequestions']);
 Route::get('/AllQuestions/{id}',['as'=>'SeeQuestions','uses'=>'AdminController@Questionslist']);
+
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

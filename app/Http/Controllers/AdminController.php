@@ -127,7 +127,8 @@ class AdminController extends Controller
             $ans = $line[sizeof($line)-1];
             for ($x = 1; $x < sizeof($line)-1; $x++) {
             
-            $str .= $line[$x].",";
+            if($x==(sizeof($line)-2)) $str .= $line[$x];
+            else $str .= $line[$x].",";
             
             }
 
@@ -142,14 +143,14 @@ class AdminController extends Controller
 
         //$request->session()->flash('alert-success', 'Resource is added succesfully!');
         
-        return redirect('/questionset');
+        return redirect('/question_set');
 
     }
 
-    public function Questionslist($id)
+    public function Questionslist($request)
     {
         $questions=[];
-        $questions=DB::table('questions')->where('t_question_set_id', '=', $id)->get();
+        $questions=DB::table('questions')->where('t_question_set_id', '=', $request)->get();
         foreach ($questions as $question) {
             $id1=$question->t_question_set_id;
         }

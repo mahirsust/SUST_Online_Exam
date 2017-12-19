@@ -13,7 +13,7 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
 						</li>
-						<li class="breadcrumb-item"><a href="{{url('/questionset')}}">Question Set</a>
+						<li class="breadcrumb-item"><a href="{{url('/question_set')}}">Question Set</a>
 						</li>
 						<li class="breadcrumb-item active">All Questions
 						</li>
@@ -46,6 +46,7 @@
 									$options = explode(',', $q->option);
 									$op_num=0;
 								?>
+								<br>
 								<h4 style="color: blue;">{{$inc}}. {{$q->question_name}}</h4>
 
 								<h6>
