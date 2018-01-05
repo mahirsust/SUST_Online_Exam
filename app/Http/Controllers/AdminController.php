@@ -60,28 +60,35 @@ class AdminController extends Controller
         return view('admin.notice.notice', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
     }
 
-    public function showNotice()
+    public function showNotice($request)
     {
-        return view('admin.notice.addnotice');
+        $coursenotice=[];
+        $coursenotice=DB::table('notices')->where('c_id', '=', $request)->get();
+        $cid_number=$request;
+        
+        return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
+    }
+
+    public function AddNotice($request)
+    {
+         
+        return view('admin.notice.addnotice', compact('request'));
     }
 
     public function postNotice(Request $request)
     {
-        return $request;
-        /*$notice = new Notice;
+        //return $request;
         
-        $notice->course = $request->cname; 
-        $notice->notice_date = $request->n_date;
-        $notice->notice = $request->notice_1;
-        $notice->file_path = $fileName; 
+        $notice = new Notice;
         
+        $notice->c_id = $request->course_id; 
+        $notice->t_notice_title = $request->ntitle;
+        $notice->t_notice = $request->ndescription;
         $notice->save();
-        $request->session()->flash('alert-success', 'Notice is added succesfully!');
-        $request = $request->semester;
-        return redirect()->action('AdminController@index', ['id' => $request]);*/
-        $request->session()->flash('alert-success', 'Course is added succesfully!');
-        
-        return redirect('/course');
+
+        $request = $request->course_id;
+
+        return redirect('/notice/'.$request);
     }
 
     public function addQuestionSet(Request $request)

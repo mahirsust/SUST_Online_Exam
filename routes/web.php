@@ -36,7 +36,8 @@ Route::get('/reglist',['as'=>'regcourse','uses'=>'AdminController@regList']);
 
 /*----------------------Notice----------------------*/
 Route::get('/noticelist',['as'=>'noticelist','uses'=>'AdminController@noticeList']);
-Route::get('/notice',['as'=>'notice','uses'=>'AdminController@showNotice']);
+Route::get('/notice/{id}',['as'=>'notice','uses'=>'AdminController@showNotice']);
+Route::get('/CreateNotice/{id}',['as'=>'addnotice','uses'=>'AdminController@AddNotice']);
 Route::post('/saveNotice',['as'=>'savenotice','uses'=>'AdminController@postNotice']);
 
 /*----------------------Question----------------------*/
