@@ -29,7 +29,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#"><i class="icon-file-text3"></i>
+            <a href="{{ url('/exam') }}""><i class="icon-file-text3"></i>
               <span data-i18n="nav.advance_cards.main" class="menu-title">Exams</span>
             </a>
           </li>

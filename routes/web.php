@@ -46,6 +46,11 @@ Route::get('/question_set',['as'=>'questionsetlist','uses'=>'AdminController@sho
 Route::post('/savequestions',['as'=>'SaveQuestions','uses'=>'AdminController@savequestions']);
 Route::get('/AllQuestions/{id}',['as'=>'SeeQuestions','uses'=>'AdminController@Questionslist']);
 
+/*----------------------Exam----------------------*/
+Route::get('/exam',['as'=>'exam','uses'=>'AdminController@showExams']);
+Route::view('/CreateExam', 'admin.exam.addexam', ['as' => 'createexam']);
+
+
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

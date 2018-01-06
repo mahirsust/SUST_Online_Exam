@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 use App\Models\Course;
-use App\Question_set;
-use App\Notice;
-use App\Question;
+use App\Models\Question_set;
+use App\Models\Notice;
+use App\Models\Question;
+use App\Models\Exam;
 use Validator;
 use File;
 use Session;
@@ -26,7 +27,14 @@ class AdminController extends Controller
 
     public function showCourses()
     {
+        
         return view('admin.course.courses', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
+    }
+
+    public function showExams()
+    {
+        
+        return view('admin.exam.exams', ['exams' => Exam::where('t_id', Auth::user()->id)->get()]);
     }
 
     public function AddCourse()
