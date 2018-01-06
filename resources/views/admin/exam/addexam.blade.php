@@ -73,16 +73,25 @@
 												</div>
 											</div>
 
+											<div class="form-group">
+												<label for="timesheetinput3">Date</label>
+												<div class="position-relative has-icon-left">
+													<input type="date" id="timesheetinput3" class="form-control" name="date">
+													<div class="form-control-position">
+														<i class="icon-calendar5"></i>
+													</div>
+												</div>
+											</div>
 
 											<div class="form-group">
-								                <div class='input-group date' id='datetimepicker1'>
-								                    <input type='text' class="form-control" />
-								                    <span class="input-group-addon">
-								                        <span class="glyphicon glyphicon-calendar"></span>
-								                    </span>
-								                </div>
-								            </div>
-
+												<label for="timesheetinput5">Set Time</label>
+												<div class="position-relative has-icon-left">
+													<input type="time" id="timesheetinput5" class="form-control" name="starttime">
+													<div class="form-control-position">
+														<i class="icon-clock5"></i>
+													</div>
+												</div>
+											</div>
 											
 
 											<div class="form-actions">
@@ -99,11 +108,6 @@
 					</div>
 				</div>
 			</div>
-			<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
 		</div>
 		<!-- ////////////////////////////////////////////////////////////////////////////-->
 
