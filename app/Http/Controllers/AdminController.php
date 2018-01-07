@@ -34,12 +34,25 @@ class AdminController extends Controller
     public function showExams()
     {
         
-        return view('admin.exam.exams', ['exams' => Exam::where('t_id', Auth::user()->id)->get()]);
+         return view('admin.exam.exams', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
+    }
+    public function showNotice($request)
+    {
+        $coursenotice=[];
+        $coursenotice=DB::table('notices')->where('c_id', '=', $request)->get();
+        $cid_number=$request;
+        
+        return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
     }
 
     public function AddCourse()
     {
         return view('admin.course.addcourse');
+    }
+     public function CreateExam()
+    {
+        //$c = 
+       // return view('admin.exam.addexam', ['set' => Question]);
     }
 
     public function saveCourse(Request $request)
@@ -58,6 +71,13 @@ class AdminController extends Controller
 
     }
 
+    public function saveExam(Request $request)
+    {
+        return $request;
+        
+
+    }
+
     public function regList()
     {
         return view('admin.course.reglist');
@@ -68,14 +88,7 @@ class AdminController extends Controller
         return view('admin.notice.notice', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
     }
 
-    public function showNotice($request)
-    {
-        $coursenotice=[];
-        $coursenotice=DB::table('notices')->where('c_id', '=', $request)->get();
-        $cid_number=$request;
-        
-        return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
-    }
+    
 
     public function AddNotice($request)
     {

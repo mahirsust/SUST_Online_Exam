@@ -32,7 +32,7 @@
 						<div class="card-body collapse in">
 							<div class="card-block">
 
-								<form class="form" method="POST" action="{{ url('/saveCourse')}}" >
+								<form class="form" method="POST" action="{{ url('/saveExam')}}" >
 									{{ csrf_field() }}
 									<input type="hidden" name="t_id" value={{$id}}>
 									<div class="form-body">
