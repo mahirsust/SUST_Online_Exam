@@ -47,37 +47,23 @@
 	                                <div class="card-block">
 	                                      
 	                                    <p>{{$cnotice->t_notice}}</p>       
-		                                <!-- <p >
-		                                    
-		                                Hope you are doing well. 
-		                                This is to inform you that you have to submit a progress report of your project by this week 
-		                            	<br>
-										Please organize your report as follows:<br>
-										Project Title: Mention the name of your project (web app) you are going to develop. <br>
-										Project Team (Name, Student Number, Email, Mobile): Your team details.<br>
-										Current updates: Provide a List - What have you done so far / How far have you progressed / What you have implemented  etc...<br>
-										Overall Progress : The progress of your project (in percentage, i.e 45% / 65% ...). <br>
-										Provide some screenshots of what you have implemented so far.  <br>
-										Finally mention whether you can complete your project by the first week of January 2018 or not.
-										</p> -->
+		                                
 		                                <div>
 		                                    <div>
 
 		                                        <button
-		                                           id="edit"
-		                                           class="btn btn-sm btn-warning">
-		                                           <!-- //data-toggle="modal"
-		                                           //post id post id
-		                                           //post body post post_body
-		                                           //data action edit -->
-		                                           
+		                                           id="edit" type="button"
+		                                           class="btn btn-sm btn-warning" data-toggle="modal" 
+		                                           data-target="#default{{$cnotice->id}}">
+		                                          
 		                                            Edit
 		                                        </button>
 
 		                                        <span></span>
 		                                        <button
-		                                           id="edit"
-		                                           class="btn btn-sm btn-danger">
+		                                           id="delete" type="button"
+		                                           class="btn btn-sm btn-danger" data-toggle="modal" 
+		                                           data-target="#default1{{$cnotice->id}}">
 		                                           <!-- //data-toggle="modal"
 		                                           //post id post id
 		                                           //post body post post_body
@@ -85,6 +71,89 @@
 		                                           
 		                                            Delete
 		                                        </button>
+
+		                                        <!-- Edit Modal -->
+                                                <div class="modal fade text-xs-left" id="default{{$cnotice->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h4 class="modal-title" id="myModalLabel1">Edit Notice</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form" method="POST" action="{{ url('/editNotice')}}" >
+																	{{ csrf_field() }}
+																	<input type="hidden" name="notic_id" value="{{$cnotice->id}}">
+																	<input type="hidden" name="cours_id" value="{{$cnotice->c_id}}">
+																	<div class="form-body">
+																		<div class="form-group">
+																			<label for="timesheetinput1"><h4>Notice Title</h4></label>
+																			<div class="position-relative has-icon-left">
+																				<input required type="text" id="timesheetinput1" class="form-control" name="edit_title" value="{{$cnotice->t_notice_title}}">
+																				<div class="form-control-position">
+																					<i class="icon-head"></i>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="form-group">
+																			<label for="timesheetinput2"><h4>Notice Description</h4></label>
+																			<div class="position-relative has-icon-left">
+																				<textarea required type="text" id="timesheetinput2" class="form-control" name="edit_description">{{$cnotice->t_notice}}</textarea>
+																				<div class="form-control-position">
+																					<i class="icon-briefcase4"></i>
+																				</div>
+																			</div>
+																		</div>
+
+																	</div>
+																	
+																	<div class="form-actions">
+																		<button type="submit" class="btn btn-info">
+																			Update
+																		</button>
+																	</div>
+																</form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Delete Modal -->
+                                                <div class="modal fade text-xs-left" id="default1{{$cnotice->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <strong><h3 class="modal-title" id="myModalLabel1">
+                                                                	Are you sure?
+                                                            	</h3></strong>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form" method="POST" action="{{ url('/deleteNotice')}}" >
+																	{{ csrf_field() }}
+																	<input type="hidden" name="notic_id" value="{{$cnotice->id}}">
+																	<input type="hidden" name="cours_id" value="{{$cnotice->c_id}}">
+																	<div class="form-body">
+																		
+																		<button type="submit" class="btn btn-danger">
+																			Delete
+																		</button>
+																		<button type="submit" data-dismiss="modal" class="btn btn-secondary btn-md">
+														                	CANCEL
+														            	</button>
+																	</div>
+																</form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
 		                                    </div>
 		                                </div>
 		                            </div>

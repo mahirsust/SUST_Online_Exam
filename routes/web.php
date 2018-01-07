@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/notice/{id}',['as'=>'notice','uses'=>'AdminController@showNotice']);
 	Route::get('/CreateNotice/{id}',['as'=>'addnotice','uses'=>'AdminController@AddNotice']);
 	Route::post('/saveNotice',['as'=>'savenotice','uses'=>'AdminController@postNotice']);
+	Route::post('/editNotice',['as'=>'editnotice','uses'=>'AdminController@updateNotice']);
+	Route::post('/deleteNotice',['as'=>'deletenotice','uses'=>'AdminController@removeNotice']);
 
 	/*----------------------Question----------------------*/
 	Route::get('/CreateQuestionSet',['as'=>'add_questionset','uses'=>'AdminController@addQuestionSet']);

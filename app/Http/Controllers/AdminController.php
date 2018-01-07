@@ -39,7 +39,9 @@ class AdminController extends Controller
     public function showNotice($request)
     {
         $coursenotice=[];
-        $coursenotice=DB::table('notices')->where('c_id', '=', $request)->get();
+        $coursenotice=DB::table('notices')->where('c_id', '=', $request)
+                                          ->orderBy('id','desc')
+                                          ->get();
         $cid_number=$request;
         
         return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
@@ -108,6 +110,31 @@ class AdminController extends Controller
         $notice->save();
 
         $request = $request->course_id;
+
+        return redirect('/notice/'.$request);
+    }
+
+    public function updateNotice(Request $request)
+    {
+        //return $request;
+        
+        $edit_notice_data = Notice::find($request->notic_id);
+        $edit_notice_data->t_notice_title = $request->edit_title;
+        $edit_notice_data->t_notice = $request->edit_description;
+        $edit_notice_data->save();
+
+        $request = $request->cours_id;
+
+        return redirect('/notice/'.$request);
+    }
+
+    public function removeNotice(Request $request)
+    {
+        //return $request;
+        $delete_data = Notice::find($request->notic_id);
+        $delete_data->delete();
+        
+        $request = $request->cours_id;
 
         return redirect('/notice/'.$request);
     }

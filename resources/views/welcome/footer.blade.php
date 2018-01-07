@@ -5,7 +5,10 @@
             <footer id="footer">
                 <div class="container">
                     <div class="col-md-8">
-                        <p class="copyright">Copyright: <span>2015</span> . Design and Developed by <a href="http://www.Themefisher.com">Themefisher</a></p>
+                        <p class="copyright">Copyright: <span>2018</span>
+                             . Design and Developed by 
+                             <a href="#">SUST CSE 22<sup>nd</sup> Batch</a>
+                         </p>
                     </div>
                     <div class="col-md-4">
                         <!-- Social Media -->
