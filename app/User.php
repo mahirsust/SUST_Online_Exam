@@ -32,10 +32,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Question_set', 'teacher_id');
     }
    
-    public function exam()
-    {
-        return $this->hasMany('App\Models\Exam', 't_id');
-    }
+  
     public function course()
     {
         return $this->hasMany('App\Models\Course', 't_id');

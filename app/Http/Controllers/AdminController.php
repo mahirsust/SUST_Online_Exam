@@ -31,10 +31,18 @@ class AdminController extends Controller
         return view('admin.course.courses', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
     }
 
-    public function showExams()
+    public function examList()
     {
-        
-         return view('admin.exam.exams', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
+        return view('admin.exam.exams', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
+    }
+    public function showExams($request)
+    {
+
+        $course = Course::where('id', $request)->first();
+        $course = $course->t_coursename;
+        $exams = Exam::where('c_id', $request)->get();
+        $c_id = $request;
+        return view('admin.exam.examlist', compact('exams', 'course', 'c_id'));
     }
     public function showNotice($request)
     {
@@ -51,10 +59,11 @@ class AdminController extends Controller
     {
         return view('admin.course.addcourse');
     }
-     public function CreateExam()
+     public function CreateExam($request)
     {
-        //$c = 
-       // return view('admin.exam.addexam', ['set' => Question]);
+        $set = Question_set::where('teacher_id', Auth::user()->id)->get();
+        $c_id = $request;
+        return view('admin.exam.addexam', compact('set', 'c_id'));
     }
 
     public function saveCourse(Request $request)
@@ -75,8 +84,17 @@ class AdminController extends Controller
 
     public function saveExam(Request $request)
     {
-        return $request;
+        //return $request;
+        $e = new Exam;
+        $e->c_id = $request->c_id;
+        $e->q_id = $request->q_id;
+        $e->name = $request->name;
+        $e->duration = $request->duration;
+        $e->start_time = $request->date . ' ' . $request->time;
+        $e->save();
+        $request->session()->flash('alert-success', 'Exam is created succesfully!');
         
+        return redirect('/exam/'.$request->c_id);
 
     }
 

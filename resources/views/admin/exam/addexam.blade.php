@@ -26,20 +26,17 @@
 			<div class="row">
 				<div class="col-md-11">
 					<div class="card">
-						<?php
-						$id = Auth::id();
-						?>
 						<div class="card-body collapse in">
 							<div class="card-block">
 
 								<form class="form" method="POST" action="{{ url('/saveExam')}}" >
 									{{ csrf_field() }}
-									<input type="hidden" name="t_id" value={{$id}}>
+									<input type="hidden" name="c_id" value={{$c_id}}>
 									<div class="form-body">
 										<div class="form-group">
-											<label for="timesheetinput1">Course Name</label>
+											<label for="timesheetinput1">Exam Name</label>
 											<div class="position-relative has-icon-left">
-												<input type="text" id="timesheetinput1" class="form-control" placeholder="Course Name" name="coursename" required>
+												<input type="text" id="timesheetinput1" class="form-control" placeholder="Exam Name" name="name" required>
 												<div class="form-control-position">
 													<i class="icon-head"></i>
 												</div>
@@ -47,9 +44,9 @@
 										</div>
 
 										<div class="form-group">
-											<label for="timesheetinput2">Course Code</label>
+											<label for="timesheetinput2">Duration (in minutes)</label>
 											<div class="position-relative has-icon-left">
-												<input type="text" id="timesheetinput2" class="form-control" placeholder="Course Code" name="coursecode" required>
+												<input type="text" id="timesheetinput2" class="form-control" placeholder="Duration" name="duration" required>
 												<div class="form-control-position">
 													<i class="icon-briefcase4"></i>
 												</div>
@@ -57,13 +54,12 @@
 										</div>
 
 										<div class="form-group">
-											<label for="timesheetinput3">Batch</label>
+											<label for="timesheetinput3">Question Set</label>
 											<div class="position-relative has-icon-left">
-												<select class="form-control" id="timesheetinput3" name="batch" required>
-													<option value="2013">2013</option>
-													<option value="2014">2014</option>
-													<option value="2015">2015</option>
-													<option value="2016">2016</option>
+												<select class="form-control" id="timesheetinput3" name="q_id" required>
+													@foreach($set as $s)
+														<option value="{{$s->id}}">{{$s->t_question_set_name}}</option>
+													@endforeach
 												</select>
 												<!-- <input type="text" id="timesheetinput3" class="form-control" placeholder="Batch" 
 													name="batch_id"> -->
@@ -86,7 +82,7 @@
 											<div class="form-group">
 												<label for="timesheetinput5">Set Time</label>
 												<div class="position-relative has-icon-left">
-													<input type="time" id="timesheetinput5" class="form-control" name="starttime">
+													<input type="time" id="timesheetinput5" class="form-control" name="time">
 													<div class="form-control-position">
 														<i class="icon-clock5"></i>
 													</div>

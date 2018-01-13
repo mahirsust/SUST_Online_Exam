@@ -15,4 +15,8 @@ class Question_set extends Model
     {
         return $this->hasMany('App\Models\Question', '	t_question_set_id');
     }
+     public function exam()
+    {
+        return $this->hasOne('App\Models\Exam', 'q_id');
+    }
 }

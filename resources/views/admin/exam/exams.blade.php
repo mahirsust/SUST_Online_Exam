@@ -6,7 +6,7 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">Notice</h2>
+				<h2 class="content-header-title">Exam</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
@@ -54,7 +54,7 @@
 											<th scope="row">{{$c->id}}</th>
 											<td>{{$c->t_coursename}}</td>
 											<td>{{$c->t_coursecode}}</td>
-											<td><a href="{{ url('/notice/'.$c->id) }}" class="btn btn-info">Enter</a></td>
+											<td><a href="{{ url('/exam/'.$c->id) }}" class="btn btn-info">Enter</a></td>
 											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
 										</tr>
 										@endforeach

@@ -15,4 +15,8 @@ class Course extends Model
     {
         return $this->hasMany('App\Models\Notice', 'c_id');
     }
+     public function exam()
+    {
+        return $this->hasMany('App\Models\Exam', 'c_id');
+    }
 }

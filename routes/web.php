@@ -50,8 +50,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/AllQuestions/{id}',['as'=>'SeeQuestions','uses'=>'AdminController@Questionslist']);
 
 	/*----------------------Exam----------------------*/
-	Route::get('/exam',['as'=>'exam','uses'=>'AdminController@showExams']);
-	Route::view('/CreateExam', 'admin.exam.addexam', ['as' => 'createexam']);
+	Route::get('/examlist',['as'=>'examlist','uses'=>'AdminController@examList']);
+	Route::get('/exam/{id}',['as'=>'exam','uses'=>'AdminController@showExams']);
+	Route::get('/CreateExam/{id}', ['as'=>'createexam', 'uses'=>'AdminController@CreateExam']);
 	Route::POST('/saveExam',['as'=>'saveexam','uses'=>'AdminController@saveExam']);
 });
 

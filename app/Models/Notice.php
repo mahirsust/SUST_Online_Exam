@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notice extends Model
 {
     //
-     public function user()
+     public function course()
     {
         return $this->belongsTo('App\Models\Course', 'c_id');
     }

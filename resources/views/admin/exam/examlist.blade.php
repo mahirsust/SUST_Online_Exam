@@ -6,16 +6,14 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">Registerd Students in CSE 445</h2>
+				<h2 class="content-header-title">{{$course}}</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
 						</li>
-						<li class="breadcrumb-item"><a href="{{url('/course')}}">Courses</a>
-						</li>
-						<li class="breadcrumb-item active">Registered Students
+						<li class="breadcrumb-item active">
 						</li>
 					</ol>
 				</div>
@@ -31,9 +29,14 @@
 		<div class="content-body"><!-- Basic Tables start -->
 			<div class="row">
 				<div class="col-xs-12">
+					<div class="mb-1">
+						<a href="{{url('/CreateExam/'.$c_id)}}">
+							<button type="button" class="btn btn-success">Create Exam</button>
+						</a>
+					</div>
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">List of Registered Student</h4>
+							<h4 class="card-title">Exam List</h4>
 						</div>
 						<div class="card-body">
 							<!-- <div class="card-block card-dashboard">
@@ -42,30 +45,25 @@
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
-										<tr>
+										<tr scope="row" align="center">
 											<th>ID</th>
-											<th>Registration No</th>
-											<th>Name</th>
+											<th>Exam Name</th>
+											<th>Start Time</th>
+											<th>Duration</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										
+										@foreach($exams as $e)
 										<tr>
-											<th>1</th>
-											<td>2013331009</td>
-											<td>Nishat Tasnim Ahmed Meem</td>
+											<th scope="row">{{$e->id}}</th>
+											<td>{{$e->name}}</td>
+											<td>{{$e->start_time}}</td>
+											<td>{{$e->duration}}</td>
+											<td><a href="{{ url('/reglist') }}" class="btn btn-info">Edit</a></td>
+											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
 										</tr>
-										<tr>
-											<th>2</th>
-											<td>2013331028</td>
-											<td>Muhammad Mahir Hasan Chowdhury</td>
-										</tr>
-										<tr>
-											<th>3</th>
-											<td>2013331037</td>
-											<td>Fowzia Yesmin</td>
-										</tr>
-										
+										@endforeach
 									</tbody>
 								</table>
 							</div>
