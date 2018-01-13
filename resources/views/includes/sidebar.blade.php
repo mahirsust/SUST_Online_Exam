@@ -11,7 +11,7 @@
           </li>
 
           <li class=" nav-item">
-          <a href="#"><i class="icon-server"></i>
+          <a href="{{ url('/profile') }}"><i class="icon-server"></i>
             <span data-i18n="nav.page_layouts.main" class="menu-title">Profile</span>
           </a>
           </li>

@@ -29,6 +29,9 @@ Route::group(['middleware' => ['auth']], function() {
 	/*----------------------Dashboard----------------------*/
 	Route::get('/dashboard',['as'=>'dashboard','uses'=>'AdminController@showDashboard']);
 
+	/*----------------------Profile----------------------*/
+	Route::get('/profile',['as'=>'profile','uses'=>'AdminController@showProfile']);	
+
 	/*----------------------Course----------------------*/
 	Route::get('/course',['as'=>'course','uses'=>'AdminController@showCourses']);
 	Route::get('/CreateCourse',['as'=>'addcourse','uses'=>'AdminController@AddCourse']);
