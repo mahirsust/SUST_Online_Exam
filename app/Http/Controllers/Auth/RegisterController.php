@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/userdashboard';
 
     /**
      * Create a new controller instance.
@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'batch' => 'required|string|max:10',
             'regno' => 'required|string|max:10',
+            'user_category' => 'required|string',
         ]);
     }
 
@@ -70,6 +71,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'batch' => $data['batch'],
             'regno' => $data['regno'],
+            'user_category' => $data['user_category'],
         ]);
     }
 }

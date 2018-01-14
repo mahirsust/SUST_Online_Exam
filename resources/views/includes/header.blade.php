@@ -8,7 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="author" content="SUST-CSE '13">
 
-  <title>Admin Dashboard</title>
+  <title>Dashboard</title>
 
   <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
