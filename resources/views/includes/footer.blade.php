@@ -15,6 +15,7 @@
     </p>
   </footer>
 
+
   <!-- BEGIN VENDOR JS-->
   {{ Html::script('app-assets/js/core/libraries/jquery.min.js') }}
   {{ Html::script('app-assets/vendors/js/ui/tether.min.js') }}

@@ -27,7 +27,7 @@ class StudentController extends Controller
 
     public function showProfile()
     {
-        return view('user.profile.showprofile');
+        return view('user.profile.examdesign');
     }
     public function exams()
     {

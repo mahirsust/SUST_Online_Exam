@@ -10,9 +10,9 @@
         </li>
         <li class="nav-item">
           <a href="{{url('/')}}" class="navbar-brand nav-link">
-            <img alt="branding logo" src="app-assets/images/logo/2017-11-17.png"
-            data-expand="app-assets/images/logo/2017-11-17.png"
-            data-collapse="app-assets/images/logo/robust-logo-small.png" class="brand-logo">
+            <img alt="branding logo" src="{{url('/')}}/app-assets/images/logo/2017-11-17.png"
+            data-expand="{{url('/')}}/app-assets/images/logo/2017-11-17.png"
+            data-collapse="{{url('/')}}/app-assets/images/logo/robust-logo-small.png" class="brand-logo">
           </a>
         </li>
         <li class="nav-item hidden-md-up float-xs-right">
@@ -214,7 +214,7 @@
           <li class="dropdown dropdown-user nav-item">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
               <span class="avatar avatar-online">
-                <img src="app-assets/images/portrait/small/sust.png" alt="avatar">
+                <img src="{{url('/')}}/app-assets/images/portrait/small/sust.png" alt="avatar">
                 <i></i>
               </span>
               <span class="user-name">{{ Auth::user()->name }}</span>

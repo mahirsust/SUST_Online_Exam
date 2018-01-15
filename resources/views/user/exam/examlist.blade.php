@@ -11,9 +11,9 @@
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
+						<li class="breadcrumb-item"><a href="{{url('/userdashboard')}}">Dashboard</a>
 						</li>
-						<li class="breadcrumb-item active">
+						<li class="breadcrumb-item active">ExamList
 						</li>
 					</ol>
 				</div>

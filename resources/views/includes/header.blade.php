@@ -10,7 +10,7 @@
 
   <title>Dashboard</title>
 
-  <link rel="shortcut icon" type="image/png" href="favicon.ico">
+  <link rel="shortcut icon" type="{{url('/')}}/image/png" href="favicon.ico">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">
