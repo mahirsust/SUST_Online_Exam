@@ -68,6 +68,9 @@ Route::group(['middleware' => ['auth']], function() {
 	/*----------------------Profile----------------------*/
 	Route::get('/userprofile',['as'=>'profile','uses'=>'StudentController@showProfile']);	
 
+	/*----------------------Exam----------------------*/
+	Route::get('/uexams',['as'=>'examlist','uses'=>'StudentController@exams']);
+	Route::get('/uexamlist/{id}',['as'=>'exam','uses'=>'StudentController@showExams']);
 	
 });
 

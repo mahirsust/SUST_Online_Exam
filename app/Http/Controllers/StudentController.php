@@ -22,13 +22,24 @@ class StudentController extends Controller
 {
     public function showDashboard()
     {
-       
         return view('user.userdashboard');
     }
 
     public function showProfile()
     {
-       
         return view('user.profile.showprofile');
+    }
+    public function exams()
+    {
+        return view('user.exam.exams', ['courses' => Course::all()]);
+    }
+    public function showExams($request)
+    {
+
+        $course = Course::where('id', $request)->first();
+        $course = $course->t_coursename;
+        $exams = Exam::where('c_id', $request)->get();
+        $c_id = $request;
+        return view('user.exam.examlist', compact('exams', 'course', 'c_id'));
     }
 }

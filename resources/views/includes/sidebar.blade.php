@@ -71,7 +71,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#"><i class="icon-question-circle"></i>
+            <a href="{{ url('/uexams') }}"><i class="icon-question-circle"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Exams</span>
             </a>
           </li>
