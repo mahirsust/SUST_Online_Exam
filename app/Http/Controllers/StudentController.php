@@ -42,4 +42,10 @@ class StudentController extends Controller
         $c_id = $request;
         return view('user.exam.examlist', compact('exams', 'course', 'c_id'));
     }
+     public function startExam($request)
+    {
+        $que[] = Exam::find($request)->questions;
+        $tot =  sizeof($que);
+        return view('user.exam.quiz', compact('que', 'tot'));
+    }
 }

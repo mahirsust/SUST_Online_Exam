@@ -16,4 +16,8 @@ class Exam extends Model
     {
         return $this->belongsTo('App\Models\Question_set', 'q_id');
     }
+    public function questions()
+    {
+        return $this->hasMany('App\Models\Question', 't_question_set_id', 'q_id');
+    }
 }

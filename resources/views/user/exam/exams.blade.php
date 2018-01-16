@@ -35,9 +35,6 @@
 							<h4 class="card-title">Course</h4>
 						</div>
 						<div class="card-body">
-							<!-- <div class="card-block card-dashboard">
-								<p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
-							</div> -->
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
@@ -55,7 +52,6 @@
 											<td>{{$c->t_coursename}}</td>
 											<td>{{$c->t_coursecode}}</td>
 											<td><a href="{{ url('/uexamlist/'.$c->id) }}" class="btn btn-info">Enter</a></td>
-											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
 										</tr>
 										@endforeach
 									</tbody>

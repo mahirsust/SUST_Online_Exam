@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth']], function() {
 	/*----------------------Exam----------------------*/
 	Route::get('/uexams',['as'=>'examlist','uses'=>'StudentController@exams']);
 	Route::get('/uexamlist/{id}',['as'=>'exam','uses'=>'StudentController@showExams']);
+	Route::get('/quiz/{id}',['as'=>'quiz','uses'=>'StudentController@startExam']);
 	
 });
 
