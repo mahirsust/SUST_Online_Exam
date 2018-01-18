@@ -13,6 +13,7 @@ use App\Models\Question_set;
 use App\Models\Notice;
 use App\Models\Question;
 use App\Models\Exam;
+use App\Models\Result;
 use Validator;
 use File;
 use Session;
@@ -58,10 +59,9 @@ class StudentController extends Controller
     	foreach ($que as $key => $q) {
     		if( $request->$key == $q->answer) $r++;
     		else $w++;
-    		
     	}
-    	echo "correct ".$r;
-    	echo " wrong ".$w;
+    	echo "correct " . $r;
+    	echo " wrong" . $w;
     	
     }
 }
