@@ -57,6 +57,11 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/exam/{id}',['as'=>'exam','uses'=>'AdminController@showExams']);
 	Route::get('/CreateExam/{id}', ['as'=>'createexam', 'uses'=>'AdminController@CreateExam']);
 	Route::POST('/saveExam',['as'=>'saveexam','uses'=>'AdminController@saveExam']);
+
+	/*----------------------Result----------------------*/
+	Route::get('/rlist',['as'=>'examlist','uses'=>'AdminController@rList']);
+	Route::get('/rcourse/{id}',['as'=>'exam','uses'=>'AdminController@rcourse']);
+	Route::get('/result/{id}',['as'=>'result','uses'=>'AdminController@showResults']);
 });
 
 Route::group(['middleware' => ['auth']], function() {
@@ -72,7 +77,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/uexams',['as'=>'examlist','uses'=>'StudentController@exams']);
 	Route::get('/uexamlist/{id}',['as'=>'exam','uses'=>'StudentController@showExams']);
 	Route::get('/quiz/{id}',['as'=>'quiz','uses'=>'StudentController@startExam']);
-	Route::POST('/result',['as'=>'quiz','uses'=>'StudentController@calResult']);
+
+	/*----------------------Result----------------------*/
+	Route::get('/uresult',['as'=>'result','uses'=>'StudentController@showResults']);
 
 	
 });

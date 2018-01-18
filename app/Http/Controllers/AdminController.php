@@ -13,6 +13,7 @@ use App\Models\Question_set;
 use App\Models\Notice;
 use App\Models\Question;
 use App\Models\Exam;
+use App\Models\Result;
 use Validator;
 use File;
 use Session;
@@ -237,5 +238,24 @@ class AdminController extends Controller
         $q_sets=DB::table('question_sets')->where('id', '=', $id1)->get();
         
         return view('admin.questionset.allquestions', compact('questions', 'q_sets'));
+    }
+
+     public function rcourse($request)
+    {
+        $course = Course::where('id', $request)->first();
+        $course = $course->t_coursename;
+        $exams = Exam::where('c_id', $request)->get();
+        $c_id = $request;
+        return view('admin.result.rcourse', compact('exams', 'course', 'c_id'));
+    }
+    public function rlist()
+    {
+        return view('admin.result.rlist', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);  
+    }
+     public function showResults($request)
+    {
+        $res = Result::where('exam_id', $request)->with('user:id,name,regno', 'exam:id,name') ->get();
+        
+        return view('admin.result.results', compact('res'));
     }
 }

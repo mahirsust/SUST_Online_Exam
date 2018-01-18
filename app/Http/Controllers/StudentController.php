@@ -60,8 +60,20 @@ class StudentController extends Controller
     		if( $request->$key == $q->answer) $r++;
     		else $w++;
     	}
-    	echo "correct " . $r;
-    	echo " wrong" . $w;
+    	$res = new Result;
+    	$res->user_id = Auth::user()->id;
+    	$res->exam_id = $request->exam_id;
+    	$res->marks = $r;
+    	$res->total = $request->total;
+    	$res->save();
+
+    	return redirect('/uresult');
     	
+    }
+    public function showResults()
+    {
+    	$res = Result::where('user_id', Auth::user()->id)->with('exam.course:id,t_coursename') ->get();
+
+        return view('user.results', compact('res'));
     }
 }

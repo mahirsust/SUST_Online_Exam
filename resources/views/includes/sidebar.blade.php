@@ -36,7 +36,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="{{ url('/result') }}"><i class="icon-bar-chart-o"></i>
+            <a href="{{ url('/rlist') }}"><i class="icon-bar-chart-o"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Result</span>
             </a>
           </li>
@@ -77,7 +77,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#""><i class="icon-bar-chart-o"></i>
+            <a href="{{ url('/uresult') }}"><i class="icon-bar-chart-o"></i>
               <span data-i18n="nav.advance_cards.main" class="menu-title">Results</span>
             </a>
           </li>
