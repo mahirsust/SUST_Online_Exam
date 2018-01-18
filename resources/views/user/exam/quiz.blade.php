@@ -33,6 +33,7 @@
 							<?php
 								$c = ceil($tot/5);
 							?>
+							
 							<div class="nav-vertical">
 								<ul class="nav nav-tabs nav-right">
 									<li class="nav-item">
