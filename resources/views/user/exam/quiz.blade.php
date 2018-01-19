@@ -31,7 +31,8 @@
 						</div>
 						<div class="card-block">
 							<?php
-								$c = ceil($tot/5);
+							$c = ceil($tot/5);
+							$s = '. ';
 							?>
 							
 							<div class="nav-vertical">
@@ -46,149 +47,48 @@
 									@endfor
 								</ul>
 								<div class="tab-content px-1">
-									<div role="tabpanel" class="tab-pane active" id="tabVerticalRight1" aria-expanded="true" aria-labelledby="baseVerticalRight-tab1">
+									<div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="tab1">
+										<form class="form" method="POST" action="{{ url('/result')}}" >
+										{{ csrf_field() }}
+										<input type="hidden" name="exam_id" value={{$id}}>
 										<div class="form-body">
+											@foreach($que as $key => $q)
 											<div class="form-group">
-												<h4 style="color: blue;"><label>1. What is the name of our university?</label></h4>
-
+												<h4 style="color: blue;"><label>{{$key+1 . $s .$q->question_name}}</label></h4>
+												<?php
+													$op = str_getcsv($q->option);
+												?>
 												<h6>
 													<div class="input-group">
+														@foreach($op as $o)
 														<label class="display-inline-block custom-control custom-radio ml-1">
-															<input type="radio" name="customer1" class="custom-control-input">
+															<input type="radio" name="{{$key}}" value="{{$o}}" class="custom-control-input">
 															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">BUET</span>
+															<span class="custom-control-description ml-0">{{$o}}</span>
 														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">SUST</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">DU</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">CU</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">CUET</span>
-														</label>
+														@endforeach
 													</div>
 												</h6>
 											</div>
+											@endforeach
+											<div class="form-actions">
+												<button type="submit" class="btn btn-info">
+													<i class="icon-check2"></i> Save
+												</button>
+											</div>
 										</div>
-										
 										<br>
-										<div class="form-body">
-											<div class="form-group">
-												<h4 style="color: blue;"><label>2. Where is our university situated?</label></h4>
-
-												<h6>
-													<div class="input-group">
-														<label class="display-inline-block custom-control custom-radio ml-1">
-															<input type="radio" name="customer1" class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">Chittagong</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">Sylhet</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">Dhaka</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">Khulna</span>
-														</label>
-													</div>
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div class="tab-pane" id="tabVerticalRight2" aria-labelledby="baseVerticalRight-tab2">
-										<div class="form-body">
-											<div class="form-group">
-												<h4 style="color: blue;"><label>3. What is your batch in your department?</label></h4>
-
-												<h6>
-													<div class="input-group">
-														<label class="display-inline-block custom-control custom-radio ml-1">
-															<input type="radio" name="customer1" class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">12</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">13</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">14</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">15</span>
-														</label>
-													</div>
-												</h6>
-											</div>
-										</div>
-									</div>
-									<div class="tab-pane" id="tabVerticalRight3" aria-labelledby="baseVerticalRight-tab3">
-										<div class="form-body">
-											<div class="form-group">
-												<h4 style="color: blue;"><label>4. How many student in your batch?</label></h4>
-
-												<h6>
-													<div class="input-group">
-														<label class="display-inline-block custom-control custom-radio ml-1">
-															<input type="radio" name="customer1" class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">68</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">69</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">60</span>
-														</label>
-														<label class="display-inline-block custom-control custom-radio">
-															<input type="radio" name="customer1" checked class="custom-control-input">
-															<span class="custom-control-indicator"></span>
-															<span class="custom-control-description ml-0">63</span>
-														</label>
-													</div>
-												</h6>
-											</div>
-										</div>
+										</form>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
-					
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- ////////////////////////////////////////////////////////////////////////////-->
+	<!-- ////////////////////////////////////////////////////////////////////////////-->
 
-@endsection
+	@endsection

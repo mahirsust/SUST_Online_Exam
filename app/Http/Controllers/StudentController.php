@@ -13,6 +13,7 @@ use App\Models\Question_set;
 use App\Models\Notice;
 use App\Models\Question;
 use App\Models\Exam;
+use App\Models\Result;
 use Validator;
 use File;
 use Session;
@@ -44,8 +45,23 @@ class StudentController extends Controller
     }
      public function startExam($request)
     {
-        $que[] = Exam::find($request)->questions;
+        $que = Exam::find($request)->questions;
         $tot =  sizeof($que);
-        return view('user.exam.quiz', compact('que', 'tot'));
+        $id = $request;
+        return view('user.exam.quiz', compact('que', 'tot', 'id'));
+    }
+    public function calResult(Request $request)
+    {
+    	//return $request;
+    	$que = Exam::find($request->exam_id)->questions;
+    	$r = 0;
+    	$w = 0;
+    	foreach ($que as $key => $q) {
+    		if( $request->$key == $q->answer) $r++;
+    		else $w++;
+    	}
+    	echo "correct " . $r;
+    	echo " wrong" . $w;
+    	
     }
 }
