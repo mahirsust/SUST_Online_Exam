@@ -51,6 +51,12 @@ class AdminController extends Controller
         $c_id = $request;
         return view('admin.exam.examlist', compact('exams', 'course', 'c_id'));
     }
+     public function editExam($request)
+    {
+        $exam = Exam::where('id', $request)->first();
+         $set = Question_set::where('teacher_id', Auth::user()->id)->get();
+        return view('admin.exam.editexam', compact('exam', 'set'));
+    }
     public function showNotice($request)
     {
         $coursenotice=[];
@@ -65,6 +71,11 @@ class AdminController extends Controller
     public function AddCourse()
     {
         return view('admin.course.addcourse');
+    }
+    public function EditCourse($request)
+    {
+        $course = Course::find($request);
+        return view('admin.course.editcourse', compact('course'));
     }
      public function CreateExam($request)
     {
@@ -88,6 +99,20 @@ class AdminController extends Controller
         return redirect('/course');
 
     }
+     public function saveCourse1(Request $request)
+    {
+        //return $request;
+        $course = Course::find($request->id);
+        $course->t_coursename = $request->coursename;
+        $course->t_coursecode = $request->coursecode;
+        $course->t_batch = $request->batch;
+        $course->save();
+
+        $request->session()->flash('alert-success', 'Course is edited succesfully!');
+        
+        return redirect('/examlist');
+
+    }
 
     public function saveExam(Request $request)
     {
@@ -104,6 +129,22 @@ class AdminController extends Controller
         return redirect('/exam/'.$request->c_id);
 
     }
+
+     public function saveExam1(Request $request)
+    {
+        //return $request;
+        $e = Exam::find($request->id);
+        $e->q_id = $request->q_id;
+        $e->name = $request->name;
+        $e->duration = $request->duration;
+        $e->start_time = $request->date . ' ' . $request->time;
+        $e->save();
+        $request->session()->flash('alert-success', 'Exam is edited succesfully!');
+        
+        return redirect('/exam/'.$request->c_id);
+
+    }
+
 
     public function regList()
     {

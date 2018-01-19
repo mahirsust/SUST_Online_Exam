@@ -35,7 +35,9 @@ Route::group(['middleware' => ['auth']], function() {
 	/*----------------------Course----------------------*/
 	Route::get('/course',['as'=>'course','uses'=>'AdminController@showCourses']);
 	Route::get('/CreateCourse',['as'=>'addcourse','uses'=>'AdminController@AddCourse']);
+	Route::get('/editCourse/{id}',['as'=>'editcourse','uses'=>'AdminController@EditCourse']);
 	Route::POST('/saveCourse',['as'=>'savecourse','uses'=>'AdminController@saveCourse']);
+	Route::POST('/saveCourse1',['as'=>'savecourse','uses'=>'AdminController@saveCourse1']);
 	Route::get('/reglist',['as'=>'regcourse','uses'=>'AdminController@regList']);
 
 	/*----------------------Notice----------------------*/
@@ -57,6 +59,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/exam/{id}',['as'=>'exam','uses'=>'AdminController@showExams']);
 	Route::get('/CreateExam/{id}', ['as'=>'createexam', 'uses'=>'AdminController@CreateExam']);
 	Route::POST('/saveExam',['as'=>'saveexam','uses'=>'AdminController@saveExam']);
+	Route::POST('/saveExam1',['as'=>'saveexam','uses'=>'AdminController@saveExam1']);
+	Route::get('/editExam/{id}', ['as'=>'editexam', 'uses'=>'AdminController@editExam']);
+
 
 	/*----------------------Result----------------------*/
 	Route::get('/rlist',['as'=>'examlist','uses'=>'AdminController@rList']);

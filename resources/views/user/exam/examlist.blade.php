@@ -65,11 +65,6 @@
 											<td>{{$start}}</td>
 											<td>{{$e->duration}}</td>
 											<td><a href="{{ url('/quiz/'.$e->id) }}" class="btn btn-info">Enter</a></td>
-											<!-- @if($cur >= $start && $cur <= $end)
-												<td><a href="{{ url('/reglist') }}" class="btn btn-info">Enter</a></td>
-											@else
-												<td><a href="{{ url('/reglist') }}" class="btn btn-info disabled">Enter</a></td>
-											@endif -->
 										</tr>
 										@endforeach
 									</tbody>

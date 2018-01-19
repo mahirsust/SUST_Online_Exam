@@ -39,9 +39,6 @@
 							<h4 class="card-title">Exam List</h4>
 						</div>
 						<div class="card-body">
-							<!-- <div class="card-block card-dashboard">
-								<p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
-							</div> -->
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
@@ -55,13 +52,24 @@
 									</thead>
 									<tbody>
 										@foreach($exams as $e)
+										<?php
+											$dd = date_create($e->start_time);
+											$d = date_create($e->start_time);
+
+											$end = $dd->add(new DateInterval('PT'. $e->duration . 'M'));
+											$end = date_format($end, "d F, Y h:i A");
+											$start = date_format($d, "d F, Y h:i A");
+											
+											date_default_timezone_set('Asia/Dhaka');
+											$cur = date("Y-m-d H:i:s");
+											
+										?>
 										<tr>
 											<th scope="row">{{$e->id}}</th>
 											<td>{{$e->name}}</td>
-											<td>{{$e->start_time}}</td>
+											<td>{{$start}}</td>
 											<td>{{$e->duration}}</td>
-											<td><a href="{{ url('/reglist') }}" class="btn btn-info">Edit</a></td>
-											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
+											<td><a href="{{ url('/editExam/' .$e->id) }}" class="btn btn-info">Edit</a></td>
 										</tr>
 										@endforeach
 									</tbody>
