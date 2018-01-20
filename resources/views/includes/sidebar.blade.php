@@ -1,7 +1,7 @@
-<!-- main menu-->
+
     <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
 
-      <!-- main menu content-->
+      
       @if( Auth::user()-> user_category == "admin")
       <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
@@ -17,12 +17,12 @@
           </a>
           </li>
 
-          <li class=" nav-item">
+         <!--  <li class=" nav-item">
             <a href="{{ url('/course') }}"><i class="icon-book2"></i>
               <span data-i18n="nav.project.main" class="menu-title">Courses</span>
             </a>
           </li>
-
+ -->
           <li class=" nav-item">
             <a href="{{ url('/question_set') }}"><i class="icon-question-circle"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Question Set</span>
@@ -36,7 +36,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="{{ url('/result') }}"><i class="icon-bar-chart-o"></i>
+            <a href="{{ url('/rlist') }}"><i class="icon-bar-chart-o"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Result</span>
             </a>
           </li>
@@ -64,12 +64,12 @@
           </a>
           </li>
 
-          <li class=" nav-item">
+         <!--  <li class=" nav-item">
             <a href="#"><i class="icon-book2"></i>
               <span data-i18n="nav.project.main" class="menu-title">Courses</span>
             </a>
           </li>
-
+ -->
           <li class=" nav-item">
             <a href="{{ url('/uexams') }}"><i class="icon-file-text3"></i>
               <span data-i18n="nav.cards.main" class="menu-title">Exams</span>
@@ -77,7 +77,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#""><i class="icon-bar-chart-o"></i>
+            <a href="{{ url('/uresult') }}"><i class="icon-bar-chart-o"></i>
               <span data-i18n="nav.advance_cards.main" class="menu-title">Results</span>
             </a>
           </li>

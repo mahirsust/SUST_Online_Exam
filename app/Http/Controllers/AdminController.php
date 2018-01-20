@@ -143,10 +143,13 @@ class AdminController extends Controller
         $course->t_coursecode = $request->coursecode;
         $course->t_batch = $request->batch;
         $course->save();
+
         $request->session()->flash('alert-success', 'Course is edited succesfully!');
         
         return redirect('/examlist');
+
     }
+
     public function saveExam(Request $request)
     {
         //return $request;
@@ -161,6 +164,7 @@ class AdminController extends Controller
         
         return redirect('/exam/'.$request->c_id);
     }
+
      public function saveExam1(Request $request)
     {
         //return $request;
@@ -173,7 +177,10 @@ class AdminController extends Controller
         $request->session()->flash('alert-success', 'Exam is edited succesfully!');
         
         return redirect('/exam/'.$request->c_id);
+
     }
+
+
     public function regList()
     {
         return view('admin.course.reglist');
@@ -286,6 +293,7 @@ class AdminController extends Controller
         
         return view('admin.questionset.allquestions', compact('questions', 'q_sets'));
     }
+
      public function rcourse($request)
     {
         $course = Course::where('id', $request)->first();

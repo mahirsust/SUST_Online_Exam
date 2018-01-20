@@ -6,7 +6,7 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">Exam</h2>
+				<h2 class="content-header-title">Courses</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
@@ -29,33 +29,34 @@
 		<div class="content-body"><!-- Basic Tables start -->
 			<div class="row">
 				<div class="col-xs-12">
-					
+					<div class="mb-1">
+						<a href="{{url('/CreateCourse')}}">
+							<button type="button" class="btn btn-success">Add Course</button>
+						</a>
+					</div>
 					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Course</h4>
-						</div>
+						
 						<div class="card-body">
-							<!-- <div class="card-block card-dashboard">
-								<p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
-							</div> -->
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
 										<tr scope="row" align="center">
-											<th>ID</th>
-											<th>Course Name</th>
-											<th>Course Code</th>
-											<th>Action</th>
+											<th class="text-center">ID</th>
+											<th class="text-center">Course Name</th>
+											<th class="text-center">Course Code</th>
+											<th class="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach($courses as $c)
+										@foreach($courses as $key=>$c)
 										<tr>
-											<th scope="row">{{$c->id}}</th>
+											<th scope="row">{{$key+1}}</th>
 											<td>{{$c->t_coursename}}</td>
 											<td>{{$c->t_coursecode}}</td>
-											<td><a href="{{ url('/exam/'.$c->id) }}" class="btn btn-info">Enter</a></td>
-											<!-- <td align="center"><button type="button" class="btn btn-info" href="{{ url('/CreateCourse')}}">Enter</button></td> -->
+											<td class="col-sm">
+												<a  style="margin-right: 20px;" href="{{ url('/exam/'.$c->id) }}" class="btn btn-info">Enter</a>
+												<a href="{{ url('/editCourse/'.$c->id) }}" class="btn btn-info">Edit</a>
+											</td>
 										</tr>
 										@endforeach
 									</tbody>

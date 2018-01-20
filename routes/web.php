@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::POST('/saveExam',['as'=>'saveexam','uses'=>'AdminController@saveExam']);
 	Route::POST('/saveExam1',['as'=>'saveexam','uses'=>'AdminController@saveExam1']);
 	Route::get('/editExam/{id}', ['as'=>'editexam', 'uses'=>'AdminController@editExam']);
+
+
 	/*----------------------Result----------------------*/
 	Route::get('/rlist',['as'=>'examlist','uses'=>'AdminController@rList']);
 	Route::get('/rcourse/{id}',['as'=>'exam','uses'=>'AdminController@rcourse']);
@@ -69,8 +71,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/uexams',['as'=>'examlist','uses'=>'StudentController@exams']);
 	Route::get('/uexamlist/{id}',['as'=>'exam','uses'=>'StudentController@showExams']);
 	Route::get('/quiz/{id}',['as'=>'quiz','uses'=>'StudentController@startExam']);
+
 	/*----------------------Result----------------------*/
 	Route::get('/uresult',['as'=>'result','uses'=>'StudentController@showResults']);
+
 	
 });
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

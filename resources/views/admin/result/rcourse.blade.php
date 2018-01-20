@@ -29,16 +29,14 @@
 		<div class="content-body"><!-- Basic Tables start -->
 			<div class="row">
 				<div class="col-xs-12">
-					<div class="mb-1">
-						<a href="{{url('/CreateExam/'.$c_id)}}">
-							<button type="button" class="btn btn-success">Create Exam</button>
-						</a>
-					</div>
 					<div class="card">
 						<div class="card-header">
 							<h4 class="card-title">Exam List</h4>
 						</div>
 						<div class="card-body">
+							<!-- <div class="card-block card-dashboard">
+								<p class="card-text">Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>. This styling doesn't work in IE8 and below as <code>:nth-child</code> CSS selector isn't supported.</p>
+							</div> -->
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
@@ -51,7 +49,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										@foreach($exams as $e)
+										@foreach($exams as $key=> $e)
 										<?php
 											$dd = date_create($e->start_time);
 											$d = date_create($e->start_time);
@@ -64,14 +62,17 @@
 											$cur = date("Y-m-d H:i:s");
 											
 										?>
+										@if($end<$cur)
 										<tr>
-											<th scope="row">{{$e->id}}</th>
+											<th scope="row">{{$key+1}}</th>
 											<td>{{$e->name}}</td>
-											<td>{{$start}}</td>
+											<td>{{$e->start_time}}</td>
 											<td>{{$e->duration}}</td>
-											<td><a href="{{ url('/editExam/' .$e->id) }}" class="btn btn-info">Edit</a></td>
+											<td><a href="{{ url('/result/'.$e->id) }}" class="btn btn-info">Show Marks</a></td>
 										</tr>
+										@endif
 										@endforeach
+										
 									</tbody>
 								</table>
 							</div>

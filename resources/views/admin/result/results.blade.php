@@ -6,14 +6,14 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">{{$course}}</h2>
+				<h2 class="content-header-title">Exam</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
+						<li class="breadcrumb-item"><a href="{{url('/userdashboard')}}">Dashboard</a>
 						</li>
-						<li class="breadcrumb-item active">
+						<li class="breadcrumb-item active">Results
 						</li>
 					</ol>
 				</div>
@@ -29,47 +29,26 @@
 		<div class="content-body"><!-- Basic Tables start -->
 			<div class="row">
 				<div class="col-xs-12">
-					<div class="mb-1">
-						<a href="{{url('/CreateExam/'.$c_id)}}">
-							<button type="button" class="btn btn-success">Create Exam</button>
-						</a>
-					</div>
+					
 					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Exam List</h4>
-						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered mb-0">
 									<thead>
 										<tr scope="row" align="center">
 											<th>ID</th>
-											<th>Exam Name</th>
-											<th>Start Time</th>
-											<th>Duration</th>
-											<th>Action</th>
+											<th>Name</th>
+											<th>Reg No</th>
+											<th>Marks</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach($exams as $e)
-										<?php
-											$dd = date_create($e->start_time);
-											$d = date_create($e->start_time);
-
-											$end = $dd->add(new DateInterval('PT'. $e->duration . 'M'));
-											$end = date_format($end, "d F, Y h:i A");
-											$start = date_format($d, "d F, Y h:i A");
-											
-											date_default_timezone_set('Asia/Dhaka');
-											$cur = date("Y-m-d H:i:s");
-											
-										?>
+										@foreach($res as $key=>$r)
 										<tr>
-											<th scope="row">{{$e->id}}</th>
-											<td>{{$e->name}}</td>
-											<td>{{$start}}</td>
-											<td>{{$e->duration}}</td>
-											<td><a href="{{ url('/editExam/' .$e->id) }}" class="btn btn-info">Edit</a></td>
+											<th scope="row">{{$key+1}}</th>
+											<td>{{$r->user->name}}</td>
+											<td>{{$r->user->regno}}</td>
+											<td>{{$r->marks}} out of {{$r->total}}</td>
 										</tr>
 										@endforeach
 									</tbody>

@@ -95,26 +95,28 @@ class StudentController extends Controller
     }
     public function calResult(Request $request)
     {
-        //return $request;
-        $que = Exam::find($request->exam_id)->questions;
-        $r = 0;
-        $w = 0;
-        foreach ($que as $key => $q) {
-            if( $request->$key == $q->answer) $r++;
-            else $w++;
-        }
-        $res = new Result;
-        $res->user_id = Auth::user()->id;
-        $res->exam_id = $request->exam_id;
-        $res->marks = $r;
-        $res->total = $request->total;
-        $res->save();
-        return redirect('/uresult');
-        
+    	//return $request;
+    	$que = Exam::find($request->exam_id)->questions;
+    	$r = 0;
+    	$w = 0;
+    	foreach ($que as $key => $q) {
+    		if( $request->$key == $q->answer) $r++;
+    		else $w++;
+    	}
+    	$res = new Result;
+    	$res->user_id = Auth::user()->id;
+    	$res->exam_id = $request->exam_id;
+    	$res->marks = $r;
+    	$res->total = $request->total;
+    	$res->save();
+
+    	return redirect('/uresult');
+    	
     }
     public function showResults()
     {
-        $res = Result::where('user_id', Auth::user()->id)->with('exam.course:id,t_coursename') ->get();
+    	$res = Result::where('user_id', Auth::user()->id)->with('exam.course:id,t_coursename') ->get();
+
         return view('user.results', compact('res'));
     }
 }
