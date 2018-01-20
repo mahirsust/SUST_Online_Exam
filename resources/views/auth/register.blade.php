@@ -23,6 +23,7 @@
                     {{ csrf_field() }}
 
                         <input type="hidden" name="user_category" value="student">
+                        <input type="hidden" name="pic_path" value="-1">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 

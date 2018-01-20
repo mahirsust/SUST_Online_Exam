@@ -214,7 +214,14 @@
           <li class="dropdown dropdown-user nav-item">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
               <span class="avatar avatar-online">
-                <img src="{{url('/')}}/app-assets/images/portrait/small/sust.png" alt="avatar">
+                <?php
+                    $u_pic=Auth::user()->pic_path;
+                ?>
+                @if(Auth::user()->pic_path == "-1")
+                <img src="{{url('/')}}/app-assets/images/demo/img.png" alt="avatar">
+                @else
+                <img src="{{url('/')}}/app-assets/images/user_profile/{{$u_pic}}" alt="avatar">
+                @endif
                 <i></i>
               </span>
               <span class="user-name">{{ Auth::user()->name }}</span>

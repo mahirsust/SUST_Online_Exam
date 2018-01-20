@@ -535,6 +535,8 @@ dl.row > dd + dt {
 .img-fluid, .carousel-inner > .carousel-item > img,
 .carousel-inner > .carousel-item > a > img {
   max-width: 100%;
+  margin: 0 auto;
+  display: block;
   height: auto; }
 
 .img-thumbnail {

@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'batch' => 'required|string|max:10',
             'regno' => 'required|string|max:10',
             'user_category' => 'required|string',
+            'pic_path' => 'required|string',
         ]);
     }
 
@@ -72,6 +73,7 @@ class RegisterController extends Controller
             'batch' => $data['batch'],
             'regno' => $data['regno'],
             'user_category' => $data['user_category'],
+            'pic_path' => $data['pic_path'],
         ]);
     }
 }
