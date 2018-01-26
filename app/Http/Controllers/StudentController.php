@@ -33,13 +33,14 @@ class StudentController extends Controller
             $id1=$dat->pic_path;
         }
 
-        return view('user.profile.showprofile', compact('id1'));
+        return view('user.profile.result');
+        //return view('user.profile.showprofile', compact('id1'));
     }
 
     public function Change_Pic(Request $request)
     {
-    
-        $fileLink=$request->file('imgfile');
+    	//return $request;
+        $fileLink=$request->file('imgfile1');
         if(Auth::user()->pic_path != "-1"){
 
             $path=Auth::user()->pic_path;
@@ -49,9 +50,11 @@ class StudentController extends Controller
             File::delete($destinationPath);
         }
 
-        if($fileLink = $request->hasFile('imgfile')){
-            $file = $request->file('imgfile');
+        if($fileLink = $request->hasFile('imgfile1')){
+            $file = $request->file('imgfile1');
             $fileName = $file->getClientOriginalName();
+            $fileExtension = $file->getClientOriginalExtension();
+            $fileName = Auth::user()->email.'.'.$fileExtension;
             $destinationPath = (base_path('/public/app-assets/images/user_profile'));
             $file->move($destinationPath, $fileName);
         }
@@ -103,7 +106,7 @@ class StudentController extends Controller
     		if( $request->$key == $q->answer) $r++;
     		else $w++;
     	}
-    	$res = new Result;
+    	$res = new Result();
     	$res->user_id = Auth::user()->id;
     	$res->exam_id = $request->exam_id;
     	$res->marks = $r;

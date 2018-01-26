@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-
+@section('title', 'Quiz')
 @section('content')
 
 <div class="app-content content container-fluid">
@@ -56,7 +56,7 @@
 									@endforeach
 									<div class="form-actions">
 										<button type="submit" class="btn btn-info">
-											<i class="icon-check2"></i> Save
+											<i class="icon-check2"></i> Submit
 										</button>
 									</div>
 								</div>

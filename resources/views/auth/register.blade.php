@@ -1,5 +1,5 @@
 @extends('layouts.welcome')
-
+@section('title', 'Register')
 @section('content')
 
 <!-- Twitter Bootstrs CSS -->

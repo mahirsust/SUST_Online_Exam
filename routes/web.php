@@ -18,7 +18,7 @@ Route::get('/about',['as'=>'about','uses'=>'HomeController@showAbout']);
 Route::get('/feature',['as'=>'service','uses'=>'HomeController@showFeatures']);
 Route::get('/contact',['as'=>'contact','uses'=>'HomeController@showContact']);
 Auth::routes();
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['admin']], function() {
 	/*----------------------------Admin-------------------------------------------------*/
 	/*----------------------Dashboard----------------------*/
 	Route::get('/dashboard',['as'=>'dashboard','uses'=>'AdminController@showDashboard']);
@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/rcourse/{id}',['as'=>'exam','uses'=>'AdminController@rcourse']);
 	Route::get('/result/{id}',['as'=>'result','uses'=>'AdminController@showResults']);
 });
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['student']], function() {
 	/*----------------------------Admin-------------------------------------------------*/
 	/*----------------------Dashboard----------------------*/
 	Route::get('/userdashboard',['as'=>'dashboard','uses'=>'StudentController@showDashboard']);

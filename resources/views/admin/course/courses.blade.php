@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-
+@section('title', 'Courses')
 @section('content')
 
 <div class="app-content content container-fluid">

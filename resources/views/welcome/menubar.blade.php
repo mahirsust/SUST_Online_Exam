@@ -46,13 +46,21 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             
                             <li><a href="{{ url('/register') }}">Register</a></li>
-                            @else
+                            @elseif( Auth::user()->user_category == "admin")
                                 <li class="dropdown">
-                                    <a href="{{route('dashboard')}}">
+                                    <a href="{{ url('/dashboard') }}">
                                         <i class="icon-head"></i> 
                                         {{ Auth::user()->name }}
                                     </a>
                                 </li>
+                            @elseif( Auth::user()->user_category == "student")
+                                <li class="dropdown">
+                                    <a href="{{ url('/userdashboard') }}">
+                                        <i class="icon-head"></i> 
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                </li>
+                            @else
                             @endif
 
                         </ul>

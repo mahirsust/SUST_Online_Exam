@@ -8,7 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="author" content="SUST-CSE '13">
 
-  <title>Dashboard</title>
+  <title>@yield('title') - SUST OnliNE Exam</title>
 
   <link rel="shortcut icon" type="{{url('/')}}/image/png" href="{{url('/')}}/favicon.ico">
 

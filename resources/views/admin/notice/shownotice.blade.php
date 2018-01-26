@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-
+@section('title', 'NoticeBoard')
 @section('content')
 
 <div class="app-content content container-fluid">
@@ -162,8 +162,12 @@
 	                    </td>
 	                </tr>
 	            @endforeach
-            <!-- for -->
-            &nbsp;&nbsp;{{$coursenotice->render()}}
+	            <!-- for -->
+	            &nbsp;&nbsp;
+		            <div class="text-xs-center">
+		            	{!! $coursenotice->links('vendor.pagination.bootstrap-4') !!}
+		            </div>
+						
             	</div>
 			</div>
 		</div>

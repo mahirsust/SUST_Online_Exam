@@ -39,7 +39,7 @@ class AdminController extends Controller
 
     public function Change_Pic(Request $request)
     {
-    
+        //return $request;
         $fileLink=$request->file('imgfile');
         if(Auth::user()->pic_path != "-1"){
 
@@ -53,6 +53,8 @@ class AdminController extends Controller
         if($fileLink = $request->hasFile('imgfile')){
             $file = $request->file('imgfile');
             $fileName = $file->getClientOriginalName();
+            $fileExtension = $file->getClientOriginalExtension();
+            $fileName = Auth::user()->email.'.'.$fileExtension;
             $destinationPath = (base_path('/public/app-assets/images/user_profile'));
             $file->move($destinationPath, $fileName);
         }
@@ -97,16 +99,6 @@ class AdminController extends Controller
          $set = Question_set::where('teacher_id', Auth::user()->id)->get();
         return view('admin.exam.editexam', compact('exam', 'set'));
     }
-    public function showNotice($request)
-    {
-        $coursenotice=[];
-        $coursenotice=DB::table('notices')->where('c_id', '=', $request)
-                                          ->orderBy('id','desc')
-                                          ->get();
-        $cid_number=$request;
-        
-        return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
-    }
     public function AddCourse()
     {
         return view('admin.course.addcourse');
@@ -125,7 +117,7 @@ class AdminController extends Controller
     public function saveCourse(Request $request)
     {
         //return $request;
-        $course = new Course;
+        $course = new Course();
         $course->t_id = $request->t_id;
         $course->t_coursename = $request->coursename;
         $course->t_coursecode = $request->coursecode;
@@ -153,7 +145,7 @@ class AdminController extends Controller
     public function saveExam(Request $request)
     {
         //return $request;
-        $e = new Exam;
+        $e = new Exam();
         $e->c_id = $request->c_id;
         $e->q_id = $request->q_id;
         $e->name = $request->name;
@@ -190,6 +182,26 @@ class AdminController extends Controller
         return view('admin.notice.notice', ['courses' => Course::where('t_id', Auth::user()->id)->get()]);
     }
     
+    public function showNotice($request)
+    {
+        
+        try {
+        // Validate, then create if valid
+        $coursenotice=[];
+        $coursenotice=DB::table('notices')->where('c_id', '=', $request)
+                                          ->orderBy('id','desc')
+                                          ->paginate(2);
+        $cid_number=$request;
+        } catch(\Exception $e){
+            //back to form with errors
+            
+            return Redirect::to('/noticelist')
+                ->withErrors( $e->getErrors() )
+                ->withInput();
+        }
+        
+        return view('admin.notice.shownotice', compact('coursenotice', 'cid_number'));
+    }
     public function AddNotice($request)
     {
          
@@ -197,15 +209,33 @@ class AdminController extends Controller
     }
     public function postNotice(Request $request)
     {
-        //return $request;
+        // Start transaction!
+        DB::beginTransaction();
+
+        try {
+            // Validate, then create if valid
+            $notice = new Notice();
         
-        $notice = new Notice;
+            $notice->c_id = $request->course_id;
+            $notice->t_notice_title = $request->ntitle;
+            $notice->t_notice = $request->ndescription;
+            $notice->save();
+
+        } catch(\Exception $e){
+            // Rollback and then redirect
+            // back to form with errors
+            DB::rollback();
+            return Redirect::to('/CreateNotice/'.$request->course_id)
+                ->withErrors( $e->getErrors() )
+                ->withInput();
+        }
         
-        $notice->c_id = $request->course_id; 
-        $notice->t_notice_title = $request->ntitle;
-        $notice->t_notice = $request->ndescription;
-        $notice->save();
+        // If we reach here, then
+        // data is valid and working.
+        // Commit the queries!
+        DB::commit();
         $request = $request->course_id;
+
         return redirect('/notice/'.$request);
     }
     public function updateNotice(Request $request)
@@ -242,7 +272,7 @@ class AdminController extends Controller
     {
         $name=$request->qsetname;   
         $teacher_id_number=$request->t_id;
-        $ques_set = new Question_set;
+        $ques_set = new Question_set();
         $ques_set->teacher_id = $teacher_id_number;
         $ques_set->t_question_set_name = $name;
         $ques_set->save();
@@ -269,7 +299,7 @@ class AdminController extends Controller
             else $str .= $line[$x].",";
             
             }
-            $ques = new Question;
+            $ques = new Question();
             $ques->t_question_set_id = $id1;
             $ques->question_name = $quesname;
             $ques->option = $str;

@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-
+@section('title', 'Profile')
 @section('content')
 
 
@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="card">
 					<div class="card-body">
-						<div class="col-md-10 col-md-off">
+						<div class="col-md-10">
                             <div class="card border-grey border-lighten-2">
                                 <div class="card-block">
                                     <h4 class="card-title text-xs-center">Student</h4>
@@ -45,7 +45,7 @@
                                         $u_name=Auth::user()->name;
                                     ?>
 
-                                    <ul class="list-group">
+                                    <ul class="list-group" align="center">
                                         <li class="list-group-item"><strong>Email :</strong> <a href="#" class="card-link">{{ Auth::user()->email }}</a></li>
                                         <li class="list-group-item"><strong>Registration No. :</strong>
                                             {{ Auth::user()->regno }}
@@ -82,8 +82,8 @@
                                                             <div class="form-body">
                                                                 <div class="form-group">
                                                                     <label><h4>Choose Photo</h4></label>
-                                                                    <label id="projectinput7" class="file center-block">
-                                                                        <input type="file" id="file" name="imgfile" class="form-control" required>
+                                                                    <label id="file1" class="file center-block">
+                                                                        <input type="file" id="file" name="imgfile1" class="form-control" required>
                                                                         <span class="file-custom"></span>
                                                                     </label>
                                                                 </div>
