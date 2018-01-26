@@ -15,7 +15,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
+  <script src="app-assets/js/result.js"></script>
   <!-- BEGIN VENDOR CSS-->
   {{ Html::style('app-assets/css/bootstrap.css') }}
   
@@ -35,6 +35,7 @@
   {{ Html::style('app-assets/css/core/menu/menu-types/vertical-menu.css') }}
   {{ Html::style('app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}
   {{ Html::style('app-assets/css/core/colors/palette-gradient.css') }}
+   {{ Html::style('app-assets/css/result.css') }}
   <!-- END Page Level CSS-->
 
   <!-- BEGIN Custom CSS-->
