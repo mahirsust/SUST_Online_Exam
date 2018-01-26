@@ -8,9 +8,9 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="author" content="SUST-CSE '13">
 
-  <title>Dashboard</title>
+  <title>@yield('title') - SUST OnliNE Exam</title>
 
-  <link rel="shortcut icon" type="{{url('/')}}/image/png" href="favicon.ico">
+  <link rel="shortcut icon" type="{{url('/')}}/image/png" href="{{url('/')}}/favicon.ico">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">

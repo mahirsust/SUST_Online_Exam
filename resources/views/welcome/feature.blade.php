@@ -1,5 +1,5 @@
 @extends('layouts.welcome')
-
+@section('title', 'Feature')
 @section('content')
 
         <!-- 

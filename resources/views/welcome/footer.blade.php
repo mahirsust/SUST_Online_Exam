@@ -5,9 +5,20 @@
             <footer id="footer">
                 <div class="container">
                     <div class="col-md-8">
-                        <p class="copyright">Copyright: <span>2018</span>
-                             . Design and Developed by 
+                        <p class="copyright">Copyright: 
+                            <span>
+                                2018
+                                <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" 
+                                  class="text-bold-800 grey darken-2">   
+                                  Meem-Mahir-Munni
+                                </a>
+                                , All rights reserved.
+                            </span>
+                            <span class="float-md-right d-xs-block d-md-inline-block">
+                            &nbsp;&nbsp;
+                                    Powered by 
                              <a href="#">SUST CSE 22<sup>nd</sup> Batch</a>
+                             </span>
                          </p>
                     </div>
                     <div class="col-md-4">

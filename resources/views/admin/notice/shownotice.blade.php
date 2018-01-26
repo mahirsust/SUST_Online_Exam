@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-
+@section('title', 'NoticeBoard')
 @section('content')
 
 <div class="app-content content container-fluid">
@@ -121,7 +121,7 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Delete Modal -->
+                                                <!-- Delete Modal Start -->
                                                 <div class="modal fade text-xs-left" id="default1{{$cnotice->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -152,7 +152,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <!-- Delete Modal End -->
 
 		                                    </div>
 		                                </div>
@@ -161,8 +161,13 @@
 	                        </section>
 	                    </td>
 	                </tr>
-	                @endforeach
-            <!-- for -->
+	            @endforeach
+	            <!-- for -->
+	            &nbsp;&nbsp;
+		            <div class="text-xs-center">
+		            	{!! $coursenotice->links('vendor.pagination.bootstrap-4') !!}
+		            </div>
+						
             	</div>
 			</div>
 		</div>

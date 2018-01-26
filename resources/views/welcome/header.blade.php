@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="shortcut icon" type="image/png" href="university-cap.ico">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SUST Online Exam</title>
+    <title>@yield('title') - SUST OnliNE Exam</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">

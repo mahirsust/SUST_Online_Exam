@@ -1,5 +1,5 @@
 @extends('layouts.welcome')
-
+@section('title', 'Contact')
 @section('content')
 
         <!-- 
