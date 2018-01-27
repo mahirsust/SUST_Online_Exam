@@ -86,10 +86,13 @@ class StudentController extends Controller
         $course = $course->t_coursename;
         $exams = Exam::where('c_id', $request)->get();
         $c_id = $request;
-        return view('user.exam.examlist', compact('exams', 'course', 'c_id'));
+        $res[] = Result::where([['user_id', 2], ['exam_id', 2], ])->first();
+
+        return view('user.exam.examlist', compact('exams', 'course', 'c_id', 'res'));
     }
     public function startTime(Request $request)
     {
+        date_default_timezone_set('Asia/Dhaka');
         $time1 = date("Y-m-d h:i:sa");
         
         $num=$request->exam_id;
@@ -100,16 +103,29 @@ class StudentController extends Controller
         $dat=strtotime($dat);
         $diff=$dat-strtotime($time1);
         //return $diff;
-        return view('user.profile.timer', compact('diff', 'num'));
+        return view('user.exam.timer', compact('diff', 'num'));
     }
 
-     public function startExam($request)
+     public function startExam(Request $request)
     {
-
+        $request=$request->exam_id_name;
         $que = Exam::find($request)->questions;
         $tot =  sizeof($que);
         $id = $request;
-        return view('user.exam.quiz', compact('que', 'tot', 'id'));
+        date_default_timezone_set('Asia/Dhaka');
+        $time1 = date("Y-m-d h:i:sa");
+        
+        $num=$request;
+        $exams = Exam::where('id', $num)->get();
+        $dat=strtotime($exams[0]->start_time);
+        $dat_t=$exams[0]->duration*60;
+        $dat+=$dat_t;
+        //Sun, 07 Jan 2018 18:30:16 GMT
+        //$ti=gmdate("D, d M Y H:i:s T", strtotime($dat));
+        //$dat=strtotime($dat);
+        $diff=$dat-strtotime($time1);
+        //return $diff;
+        return view('user.exam.quiz', compact('que', 'tot', 'id', 'diff'));
     }
     public function calResult(Request $request)
     {

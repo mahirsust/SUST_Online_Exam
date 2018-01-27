@@ -58,20 +58,19 @@
 											date_default_timezone_set('Asia/Dhaka');
 											$cur = date("Y-m-d H:i:s");
 											$dat=strtotime($e->start_time);
-											$dat*=$e->duration;
+											$dat_t=$e->duration*60;
+											$dat+=$dat_t;
 											$cur=strtotime($cur);
 											$dat_exam=strtotime($e->start_time);
+											$arr=sizeof($res);
 										?>
 										<tr>
 											<th scope="row">{{$e->id}}</th>
 											<td>{{$e->name}}</td>
 											<td>{{$start}}</td>
 											<td>{{$e->duration}}</td>
-											@if($dat-$cur<=0)
-											<td><a href="{{ url('/quiz/'.$e->id) }}" class="btn btn-info disable">Enter</a></td>
-											@elseif($dat_exam-$cur>0) 
-											<td><a href="{{ url('/quiz/'.$e->id) }}" class="btn btn-info">Enter</a></td>
-											@else
+											
+											@if($dat_exam-$cur>0)
 											<td><form class="form" method="POST" action="{{ url('/time')}}" >
 													{{ csrf_field() }}
 													<input type="hidden" name="exam_id" value="{{$e->id}}">						
@@ -79,7 +78,40 @@
 															Enter
 														</button>
 													
-												</form></td>
+												</form>
+											</td>
+											@elseif($dat-$cur>0) 
+											<td>
+												@if($arr=="")
+												<form class="form" method="POST" action="{{ url('/quiz')}}" >
+													{{ csrf_field() }}
+													<input type="hidden" name="exam_id_name" value="{{$e->id}}">												
+														<button type="submit" class="btn btn-info">
+															Enter
+														</button>												
+												</form>
+												@else
+												<form class="form" method="POST" action="{{ url('/quiz')}}" >
+													{{ csrf_field() }}
+													<input type="hidden" name="exam_id_name" value="{{$e->id}}">												
+														<button type="submit" class="btn btn-info disabled">
+															Enter
+														</button>													
+												</form>
+												@endif
+											</td>
+											@elseif($dat-$cur<=0)
+											<td>
+												<form class="form" method="POST" action="{{ url('/quiz')}}" >
+													{{ csrf_field() }}
+													<input type="hidden" name="exam_id_name" value="{{$e->id}}">												
+														<button type="submit" class="btn btn-info disabled">
+															Enter
+														</button>
+													
+												</form>
+											</td>
+											@else
 											@endif
 										</tr>
 										@endforeach

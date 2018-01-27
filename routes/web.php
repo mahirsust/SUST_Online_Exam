@@ -71,10 +71,11 @@ Route::group(['middleware' => ['student']], function() {
 	/*----------------------Exam----------------------*/
 	Route::get('/uexams',['as'=>'examlist','uses'=>'StudentController@exams']);
 	Route::get('/uexamlist/{id}',['as'=>'exam','uses'=>'StudentController@showExams']);
-	Route::get('/quiz/{id}',['as'=>'quiz','uses'=>'StudentController@startExam']);
+	Route::post('/quiz',['as'=>'quiz','uses'=>'StudentController@startExam']);
 	Route::post('/time',['as'=>'time','uses'=>'StudentController@startTime']);
 
 	/*----------------------Result----------------------*/
+	Route::post('/result',['as'=>'result','uses'=>'StudentController@calResult']);
 	Route::get('/uresult',['as'=>'result','uses'=>'StudentController@showResults']);
 	Route::post('/answers',['as'=>'AllAnswers','uses'=>'StudentController@Answerlist']);
 

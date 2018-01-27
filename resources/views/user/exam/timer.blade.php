@@ -20,9 +20,9 @@
 							<div class="card-header">
 								<h4 class="card-title text-xs-center">Go To The Exam...</h4>
 							</div>
-							<form id="frm2" method="get" action="{{ url('/quiz/'.$request) }}">
+							<form id="frm2" method="post" action="{{ url('/quiz') }}">
 					    		{{ csrf_field() }}
-					    		
+					    		<input type="hidden" name="exam_id_name" value="{{$request}}">
 					    	</form>
 						@endif
 						<div class="card-body text-xs-center">
@@ -36,8 +36,9 @@
 								<div class="message"></div>
 							</div> -->
 							
-							<form id="frm" method="get" action="{{ url('/quiz/'.$request) }}">
+							<form id="frm" method="post" action="{{ url('/quiz') }}">
 					    		{{ csrf_field() }}
+					    		<input type="hidden" name="exam_id_name" value="{{$request}}">
 					    		
 					    	</form>
 					    	@if($diff>0)
@@ -63,9 +64,9 @@
 								
 							</div>
 							@else 
-								<form id="frm1" method="get" action="{{ url('/quiz/'.$request) }}">
+								<form id="frm1" method="get" action="{{ url('/quiz') }}">
 						    		{{ csrf_field() }}
-						    		
+						    		<input type="hidden" name="exam_id_name" value="{{$request}}">
 						    	</form>
 							@endif
 						</div>
@@ -76,6 +77,9 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	document.getElementById("frm2").submit();
+</script>
 <script type="text/javascript">
 	document.getElementById("frm1").submit();
 </script>
@@ -122,6 +126,7 @@
 	  updateClock();
 	  var timeinterval = setInterval(updateClock, 1000);
 	}
+
 	var time = document.getElementById("dat1").value;
 	var deadline = new Date(Date.parse(new Date()) + time*1000);
 	//window.alert(time);
