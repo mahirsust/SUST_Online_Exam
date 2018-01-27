@@ -83,7 +83,7 @@
           </li>
 
           <li class=" nav-item">
-            <a href="#"><i class="icon-bell3"></i>
+            <a href="{{ url('/unotice_course') }}"><i class="icon-bell3"></i>
               <span data-i18n="nav.content.main" class="menu-title">Notice</span>
             </a>
           </li>

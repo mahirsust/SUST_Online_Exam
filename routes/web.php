@@ -59,6 +59,8 @@ Route::group(['middleware' => ['admin']], function() {
 	Route::get('/rlist',['as'=>'examlist','uses'=>'AdminController@rList']);
 	Route::get('/rcourse/{id}',['as'=>'exam','uses'=>'AdminController@rcourse']);
 	Route::get('/result/{id}',['as'=>'result','uses'=>'AdminController@showResults']);
+
+	/*----------------------Admin Desk----------------------*/
 	Route::get('/admin_desk', 'AdminDeskController@index');
 	Route::POST('/admin_desk/update', 'AdminDeskController@update');
 	Route::POST('/admin_desk/delete', 'AdminDeskController@delete');
@@ -83,6 +85,10 @@ Route::group(['middleware' => ['student']], function() {
 	Route::get('/uresult',['as'=>'result','uses'=>'StudentController@showResults']);
 	Route::post('/answers',['as'=>'AllAnswers','uses'=>'StudentController@Answerlist']);
 
+
+	/*----------------------Result----------------------*/
+	Route::get('/unotice_course',['as'=>'course_notice','uses'=>'StudentController@shownotice_course']);
+	Route::get('/allnotices/{id}',['as'=>'AllNotices','uses'=>'StudentController@AllNotice']);
 	
 });
 /*Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

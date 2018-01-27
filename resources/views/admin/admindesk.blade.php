@@ -97,7 +97,7 @@
                                 <div class="form-group">
                                     <label for="timesheetinput1"><h4>Email :</h4></label>
                                     <div class="position-relative has-icon-left">
-                                        <input required="" type="text" id="timesheetinput1" class="form-control" name="name" 
+                                        <input required="" type="email" id="timesheetinput1" class="form-control" name="name" 
                                         autofocus="">
                                         <div class="form-control-position">
                                             <i class="icon-mail6"></i>

@@ -166,4 +166,17 @@ class StudentController extends Controller
         
         return view('admin.questionset.allquestions', compact('questions', 'q_sets'));
     }
+
+    public function shownotice_course()
+    {
+        return view('user.notice.course', ['courses' => Course::all()]);
+    }
+    public function AllNotice($request)
+    {
+        $course_notice=[];
+        $course_notice=DB::table('notices')->where('c_id', '=', $request)
+                                          ->orderBy('id','desc')
+                                          ->paginate(2);
+        return view('user.notice.notice', compact('course_notice', 'request'));
+    }
 }
