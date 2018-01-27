@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function sendVerificationEmail()
     {
-        $this->notify(new VerifyEmail($user));
+        $this->notify(new VerifyEmail($this));
     }
 }
