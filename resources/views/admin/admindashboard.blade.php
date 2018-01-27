@@ -8,7 +8,16 @@
 		</div>
 		<div class="content-body"><!-- stats -->
 			<div class="row">
-				<div class="col-xl-3 col-lg-6 col-xs-12">
+				<div class="col-md-12">
+					<span></span>
+					<div class="alert alert-success alert-dismissible fade in mb-2" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<strong>Well done! {{Auth::user()->name}}</strong> You successfully login in the <a href="#" class="alert-link">Admin DashBoard</a> of SUST OnliNE Exam.
+					</div>
+				</div>
+				<!-- <div class="col-xl-3 col-lg-6 col-xs-12">
 					<div class="card">
 						<div class="card-body">
 							<div class="card-block">
@@ -75,11 +84,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!--/ stats -->
 			<!--/ project charts -->
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-xl-8 col-lg-12">
 					<div class="card">
 						<div class="card-body">
@@ -137,10 +146,10 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!--/ project charts -->
 			<!-- Recent invoice with Statistics -->
-			<div class="row match-height">
+			<!-- <div class="row match-height">
 				<div class="col-xl-4 col-lg-12">
 					<div class="card">
 						<div class="card-body">
@@ -252,7 +261,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- Recent invoice with Statistics -->
 
 		</div>
