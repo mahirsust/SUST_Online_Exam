@@ -15,7 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <script src="app-assets/js/result.js"></script>
+
+  
   <!-- BEGIN VENDOR CSS-->
   {{ Html::style('app-assets/css/bootstrap.css') }}
   
@@ -41,5 +42,7 @@
   <!-- BEGIN Custom CSS-->
   {{ Html::style('assets/css/style.css') }}
   <!-- END Custom CSS-->
+
+  
 
 </head>

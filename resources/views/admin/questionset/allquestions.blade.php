@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'All Questions')
+@section('title', 'All Questions and Answers')
 @section('content')
 
 <div class="app-content content container-fluid">
@@ -10,6 +10,7 @@
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
+					@if( Auth::user()-> user_category == "admin")
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a>
 						</li>
@@ -18,6 +19,17 @@
 						<li class="breadcrumb-item active">All Questions
 						</li>
 					</ol>
+					@elseif( Auth::user()-> user_category == "student")
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{{url('/userdashboard')}}">Dashboard</a>
+						</li>
+						<li class="breadcrumb-item"><a href="{{url('/uresult')}}">Results</a>
+						</li>
+						<li class="breadcrumb-item active">All Answers
+						</li>
+					</ol>
+					@else
+					@endif
 				</div>
 			</div>
 		</div>

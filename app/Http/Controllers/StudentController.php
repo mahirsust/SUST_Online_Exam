@@ -32,9 +32,8 @@ class StudentController extends Controller
         foreach ($data as $dat) {
             $id1=$dat->pic_path;
         }
-
-        return view('user.profile.result');
-        //return view('user.profile.showprofile', compact('id1'));
+       
+        return view('user.profile.showprofile', compact('id1'));
     }
 
     public function Change_Pic(Request $request)
@@ -89,8 +88,24 @@ class StudentController extends Controller
         $c_id = $request;
         return view('user.exam.examlist', compact('exams', 'course', 'c_id'));
     }
+    public function startTime(Request $request)
+    {
+        $time1 = date("Y-m-d h:i:sa");
+        
+        $num=$request->exam_id;
+        $exams = Exam::where('id', $num)->get();
+        $dat=$exams[0]->start_time;
+        //Sun, 07 Jan 2018 18:30:16 GMT
+        //$ti=gmdate("D, d M Y H:i:s T", strtotime($dat));
+        $dat=strtotime($dat);
+        $diff=$dat-strtotime($time1);
+        //return $diff;
+        return view('user.profile.timer', compact('diff', 'num'));
+    }
+
      public function startExam($request)
     {
+
         $que = Exam::find($request)->questions;
         $tot =  sizeof($que);
         $id = $request;
@@ -121,5 +136,18 @@ class StudentController extends Controller
     	$res = Result::where('user_id', Auth::user()->id)->with('exam.course:id,t_coursename') ->get();
 
         return view('user.results', compact('res'));
+    }
+    public function Answerlist(Request $request)
+    {
+        //return $request;
+        $questions=[];
+        $questions=DB::table('questions')->where('t_question_set_id', '=', $request->ans_id)->get();
+        foreach ($questions as $question) {
+            $id1=$question->t_question_set_id;
+        }
+        $q_sets=[];
+        $q_sets=DB::table('question_sets')->where('id', '=', $id1)->get();
+        
+        return view('admin.questionset.allquestions', compact('questions', 'q_sets'));
     }
 }

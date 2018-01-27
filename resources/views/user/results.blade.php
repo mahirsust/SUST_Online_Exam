@@ -50,7 +50,16 @@
 											<td>{{$r->exam->course->t_coursename}}</td>
 											<td>{{$r->exam->name}}</td>
 											<td>{{$r->marks}} out of {{$r->total}}</td>
-											<td><a href="{{ url('/AllQuestions/'. $r->exam->q_id) }}" class="btn btn-info">Enter</a></td>
+											<td>
+												<form class="form" method="POST" action="{{ url('/answers')}}" >
+													{{ csrf_field() }}
+													<input type="hidden" name="ans_id" value="{{$r->exam->q_id}}">												
+														<button type="submit" class="btn btn-info">
+															Enter
+														</button>
+													
+												</form>	
+											</td>
 										</tr>
 										@endforeach
 									</tbody>
