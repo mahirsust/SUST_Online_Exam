@@ -36,6 +36,7 @@
   {{ Html::style('app-assets/css/core/menu/menu-types/vertical-menu.css') }}
   {{ Html::style('app-assets/css/core/menu/menu-types/vertical-overlay-menu.css') }}
   {{ Html::style('app-assets/css/core/colors/palette-gradient.css') }}
+   {{ Html::style('app-assets/css/result.css') }}
   <!-- END Page Level CSS-->
 
   <!-- BEGIN Custom CSS-->

@@ -17,6 +17,7 @@ Route::get('/home',['as'=>'home','uses'=>'HomeController@showHome']);
 Route::get('/about',['as'=>'about','uses'=>'HomeController@showAbout']);
 Route::get('/feature',['as'=>'service','uses'=>'HomeController@showFeatures']);
 Route::get('/contact',['as'=>'contact','uses'=>'HomeController@showContact']);
+Route::get('/verify/{token}', ['as' => 'verify', 'uses' => 'VerifyController@verify']);
 Auth::routes();
 Route::group(['middleware' => ['admin']], function() {
 	/*----------------------------Admin-------------------------------------------------*/

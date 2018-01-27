@@ -29,6 +29,7 @@
 								Web Engineering
 							</h1>
 						</div>
+						<div class="clock"></div>
 						<div class="card-block">
 							<form class="form" method="POST" action="{{ url('/result')}}" >
 								{{ csrf_field() }}
@@ -63,7 +64,25 @@
 								<br>
 							</form>
 						</div>
+						<script type="text/javascript">
+							function countdown(tt){
+								var clock;
 
+								clock = $('.clock').FlipClock({
+									clockFace: 'DailyCounter',
+									autoStart: false,
+									callbacks: {
+										stop: function() {
+											$('.message').html('The clock has stopped!')
+										}
+									}
+								});
+
+								clock.setTime(tt);
+								clock.setCountdown(true);
+								clock.start();
+							}
+						</script>
 					</div>
 				</div>
 			</div>
