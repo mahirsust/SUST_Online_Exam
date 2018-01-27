@@ -16,10 +16,16 @@
   </footer>
 
 
+
   <!-- BEGIN VENDOR JS-->
-  {{ Html::script('app-assets/js/core/libraries/jquery.min.js') }}
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+<!-- {{ Html::script('app-assets/js/core/libraries/jquery.min.js') }} -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   {{ Html::script('app-assets/vendors/js/ui/tether.min.js') }}
-  {{ Html::script('app-assets/js/core/libraries/bootstrap.min.js') }}
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+   {{ Html::script('app-assets/js/core/libraries/bootstrap.min.js') }}
   {{ Html::script('app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js') }}
   {{ Html::script('app-assets/vendors/js/ui/unison.min.js') }}
   {{ Html::script('app-assets/vendors/js/ui/blockUI.min.js') }}
@@ -40,5 +46,4 @@
   <!-- BEGIN PAGE LEVEL JS-->
   {{ Html::script('app-assets/js/scripts/pages/dashboard-lite.js') }}
   <!-- END PAGE LEVEL JS-->
-
 
