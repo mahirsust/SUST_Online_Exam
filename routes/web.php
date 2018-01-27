@@ -59,6 +59,10 @@ Route::group(['middleware' => ['admin']], function() {
 	Route::get('/rlist',['as'=>'examlist','uses'=>'AdminController@rList']);
 	Route::get('/rcourse/{id}',['as'=>'exam','uses'=>'AdminController@rcourse']);
 	Route::get('/result/{id}',['as'=>'result','uses'=>'AdminController@showResults']);
+	Route::get('/admin_desk', 'AdminDeskController@index');
+	Route::POST('/admin_desk/update', 'AdminDeskController@update');
+	Route::POST('/admin_desk/delete', 'AdminDeskController@delete');
+	Route::POST('/admin_desk/addnew', 'AdminDeskController@addnew');
 });
 Route::group(['middleware' => ['student']], function() {
 	/*----------------------------Admin-------------------------------------------------*/
