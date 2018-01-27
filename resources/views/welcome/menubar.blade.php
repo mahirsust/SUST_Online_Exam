@@ -36,11 +36,11 @@
                             <li>
                                 <a href="{{ url('/home') }}" >Home</a>
                             </li>
-                            <li><a href="{{ url('/about') }}">About</a></li>
+                            <!-- <li><a href="{{ url('/about') }}">About</a></li>
                             
                             <li><a href="{{ url('/feature') }}">Features</a></li>
 
-                            <li><a href="{{ url('/contact') }}">Contact</a></li>
+                            <li><a href="{{ url('/contact') }}">Contact</a></li> -->
 
                             @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>

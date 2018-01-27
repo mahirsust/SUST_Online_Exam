@@ -9,7 +9,7 @@ class HomeController extends Controller
     
     public function showHome()
     {
-        return view('welcome.mainhome');
+        return view('auth.login');
     }
 
     public function showAbout()

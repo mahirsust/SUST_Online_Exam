@@ -14,7 +14,7 @@
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<strong>Well done! {{Auth::user()->name}}</strong> You successfully login in the <a href="#" class="alert-link">Admin DashBoard</a> of SUST OnliNE Exam.
+						<strong>Wellcome! {{Auth::user()->name}}</strong> You successfully login in the <a href="#" class="alert-link">Admin DashBoard</a> of SUST OnliNE Exam.
 					</div>
 				</div>
 				<!-- <div class="col-xl-3 col-lg-6 col-xs-12">

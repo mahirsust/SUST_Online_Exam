@@ -10,7 +10,7 @@
 |
 */
 Route::get('/', function () {
-    return view('welcome.mainhome');
+    return view('auth.login');
 });
 /*----------------------------Home-------------------------------------------------*/
 Route::get('/home',['as'=>'home','uses'=>'HomeController@showHome']);
